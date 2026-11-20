@@ -95,7 +95,7 @@ html.menu-open, html.menu-open body{overflow:hidden;}
 .mh-menu nav{display:flex; flex-direction:column; gap:clamp(4px,1.4dvh,12px);
   align-items:flex-end; text-align:right;}
 .mh-menu nav a{font-weight:700; letter-spacing:-.04em; line-height:1.02; color:var(--ink);
-  font-size:15px; width:max-content;
+  font-size:18px; width:max-content;
   min-height:44px; display:inline-flex; align-items:center;
   transition:opacity var(--t-4) var(--e-line);}
 .mh-menu nav a:hover{opacity:.45;}
