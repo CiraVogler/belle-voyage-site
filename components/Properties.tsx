@@ -65,6 +65,7 @@ const LETTING: { key: Kind | "any"; label: string }[] = [
 const STEPS = ["Any", "1+", "2+", "3+", "4+", "5+"];
 
 export function Properties({ initial }: { initial: Market | "all" }) {
+  const [mobileView, setMobileView] = useState<"list" | "map">("list");
   const [market, setMarket] = useState<Market | "all">(initial);
   const [kind, setKind] = useState<Kind | "any">("any");
   const [beds, setBeds] = useState(0);
@@ -161,7 +162,9 @@ export function Properties({ initial }: { initial: Market | "all" }) {
     shown.forEach((p) => {
       const colour = MARKETS.find((x) => x.code === p.market)!.colour;
       const el = glyph(shapeOf(p.kind), colour);
-      el.addEventListener("click", () => { from.current = "map"; setSel(p.id); });
+      el.addEventListener("click", () => { from.current = "map"; setSel(p.id);
+        if (matchMedia("(max-width:900px)").matches) { setMobileView("list"); setOpen(p.id); }
+      });
       pins.current.set(p.id, new Marker({ element: el }).setLngLat(p.at).addTo(m));
     });
     if (!shown.length) return;
@@ -181,10 +184,22 @@ export function Properties({ initial }: { initial: Market | "all" }) {
        to 225 and hovering back jumped to 133. */
     if (!sel || from.current !== "map") return;
     document.getElementById(`row-${sel}`)?.scrollIntoView({ block: "nearest" });
-  }, [sel]);
+  }, [sel, mobileView]);
+
+  useEffect(() => {
+    const m = map.current;
+    if (!m || !ready || mobileView !== "map" || !shown.length) return;
+    const frame = requestAnimationFrame(() => {
+      m.resize();
+      const b = new LngLatBounds(shown[0].at, shown[0].at);
+      shown.forEach((p) => b.extend(p.at));
+      m.fitBounds(b, { padding: 48, maxZoom: 9, duration: 0 });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [mobileView, shown, ready]);
 
   return (
-    <div className="pr">
+    <div className="pr" data-mobile-view={mobileView}>
       <header className="pr-head">
         {/* The masthead belongs to the landing, where it inverts against a
             moving drawing. Here the mark is simply the way back. */}
@@ -225,6 +240,10 @@ export function Properties({ initial }: { initial: Market | "all" }) {
             aria-haspopup="dialog">
             Filters{active > 0 && <span className="pr-badge">{active}</span>}
           </button>
+        </div>
+        <div className="pr-view-switch" role="group" aria-label="Property display">
+          <button type="button" aria-pressed={mobileView === "list"} onClick={() => setMobileView("list")}>List view</button>
+          <button type="button" aria-pressed={mobileView === "map"} onClick={() => setMobileView("map")}>Map view</button>
         </div>
       </header>
 
@@ -341,6 +360,7 @@ export function Properties({ initial }: { initial: Market | "all" }) {
               <button type="button" aria-expanded={open === p.id}
                 aria-controls={open === p.id ? `d-${p.id}` : undefined}
                 onClick={() => { setSel(p.id); setOpen(open === p.id ? null : p.id); }}>
+                <span className="pr-card-photo" aria-hidden="true">Photography to come</span>
                 <span className="pr-stop" data-kind={shapeOf(p.kind)} aria-hidden="true" />
                 <span className="pr-name">{p.name}</span>
                 <span className="pr-city">{p.city}</span>
