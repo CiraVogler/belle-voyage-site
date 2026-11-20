@@ -890,9 +890,9 @@ html.menu-open, html.menu-open body{overflow:hidden;}
   .pr[data-mobile-view="map"] .pr-map{height:60dvh; min-height:280px;}
   .pr-list li > button{grid-template-columns:auto minmax(0,1fr) auto;
     grid-template-areas:"photo photo photo" "stop name arrow" "stop city arrow" "stop spec price";
-    gap:6px 12px; padding:20px var(--pad);}
+    gap:8px 12px; padding:20px var(--pad);}
   .pr-card-photo{grid-area:photo; display:grid; place-items:center; aspect-ratio:3/2;
-    width:100%; max-height:280px; margin-bottom:10px; background:var(--panel);
+    width:100%; max-height:280px; margin-bottom:12px; background:var(--panel);
     border:1px solid var(--rule); color:var(--muted); font-size:13px;
     letter-spacing:.08em; text-transform:uppercase;}
   .pr-detail .pr-shot{display:none;}
