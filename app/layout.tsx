@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@/styles/global.css";
 import "@/styles/site.css";
 import { Ride } from "@/components/Ride";
+import { SecondaryNavigation } from "@/components/Masthead";
 
 const DESC =
   "Sales, letting and management across Canada, the United States and Europe. " +
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: BOOT }} />
         <script type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LD) }} />
+        <SecondaryNavigation />
         {children}
         {/* Outside both pages, so it is the one thing that survives the swap. */}
         <Ride />
