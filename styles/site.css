@@ -873,3 +873,27 @@ html.menu-open, html.menu-open body{overflow:hidden;}
   [data-ride] .pr-head > *, [data-ride] .pr-key, [data-ride] .pr-filter,
   [data-ride] .pr-list li{animation:none;}
 }
+
+
+/* Mobile property browser: one view at a time, desktop directory unchanged. */
+.pr-view-switch,.pr-card-photo{display:none;}
+@media(max-width:900px){
+  .pr-view-switch{display:flex; gap:4px; padding:4px; margin-bottom:12px;
+    background:var(--panel); border:1px solid var(--rule); border-radius:var(--r-cap);}
+  .pr-view-switch button{flex:1; min-height:44px; border:0; border-radius:var(--r-cap);
+    background:none; color:var(--ink); font:inherit; font-size:16px; font-weight:700; cursor:pointer;}
+  .pr-view-switch button[aria-pressed="true"]{background:var(--ink); color:var(--paper);}
+  .pr-body{display:block; min-width:0;}
+  .pr[data-mobile-view="list"] .pr-map{position:absolute; width:1px; height:1px;
+    min-height:0; overflow:hidden; visibility:hidden; pointer-events:none; border:0;}
+  .pr[data-mobile-view="map"] .pr-list{display:none;}
+  .pr[data-mobile-view="map"] .pr-map{height:60dvh; min-height:280px;}
+  .pr-list li > button{grid-template-columns:auto minmax(0,1fr) auto;
+    grid-template-areas:"photo photo photo" "stop name arrow" "stop city arrow" "stop spec price";
+    gap:6px 12px; padding:20px var(--pad);}
+  .pr-card-photo{grid-area:photo; display:grid; place-items:center; aspect-ratio:3/2;
+    width:100%; max-height:280px; margin-bottom:10px; background:var(--panel);
+    border:1px solid var(--rule); color:var(--muted); font-size:13px;
+    letter-spacing:.08em; text-transform:uppercase;}
+  .pr-detail .pr-shot{display:none;}
+}
