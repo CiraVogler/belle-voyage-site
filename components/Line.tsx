@@ -705,7 +705,7 @@ export function Line() {
           ))}
 
           {/* the landing — shapes, because this is navigation */}
-          {STOPS.map((st) => {
+          {STOPS.filter((st) => st.href !== "#about").map((st) => {
             const p = onDiag(st.t);
             return (
               <g key={st.label} className="ln-stop" transform={`translate(${p.x} ${p.y})`}>
@@ -780,7 +780,7 @@ export function Line() {
     {/* Without motion the camera never travels, so the regions would be
         unreachable. They get a plain list instead — same links, no journey. */}
     <nav className="ln-fallback" aria-label="Main">
-      {STOPS.map((st) => (
+      {STOPS.filter((st) => st.href !== "#about").map((st) => (
         <a key={st.label} href={st.href}>
           <span className="lf-dot lf-plain" aria-hidden="true" />
           <span>{st.label}</span>
