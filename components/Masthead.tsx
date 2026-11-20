@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { ContactModal } from "./ContactModal";
 import { STOPS } from "@/lib/line";
 import { getView, onView, openContact, setView, type View } from "@/lib/overlay";
 import { getLenis } from "@/lib/lenis";
@@ -17,7 +19,7 @@ const arrived = () => {
   try { return !!sessionStorage.getItem("bv-arrived"); } catch { return false; }
 };
 
-export function Masthead() {
+export function Masthead({ secondary = false }: { secondary?: boolean }) {
   const [view, setLocal] = useState<View>(getView());
   const open = view === "menu";
 
@@ -50,11 +52,11 @@ export function Masthead() {
   return (
     <>
     <div className="mh">
-      <a className="mh-wm" href="/">
+      {!secondary && <a className="mh-wm" href="/">
         Belle&nbsp;V<i className="ring" aria-hidden="true">
           <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38.3" fill="none"
             stroke="currentColor" strokeWidth="23.4" /></svg></i>yage&nbsp;Estates
-      </a>
+      </a>}
 
       <button className="mh-burger" type="button" aria-expanded={view !== null}
         aria-controls="mh-menu" onClick={() => setView(view ? null : "menu")}>
@@ -69,15 +71,22 @@ export function Masthead() {
           {STOPS.map((s) => (
             /* Contact is a stop, not a page — it opens over the blur rather
                than replacing it. */
-            <a key={s.label} href={s.href}
+            <a key={s.label} href={secondary && s.href === "#about" ? "/#about" : s.href}
               onClick={s.href === "#contact" ? openContact : () => setView(null)}>
               {s.label}</a>
           ))}
         </nav>
         <div className="mh-legal">
-          {LEGAL.map((l) => <a key={l.label} href={l.href}>{l.label}</a>)}
+          {LEGAL.map((l) => <a key={l.label} href={l.href} onClick={() => setView(null)}>{l.label}</a>)}
         </div>
       </div>
     </>
   );
+}
+
+/* Keep the landing masthead inside its animation; other routes share this one. */
+export function SecondaryNavigation() {
+  const pathname = usePathname();
+  if (!pathname || pathname === "/") return null;
+  return <><Masthead key={pathname} secondary />{pathname !== "/properties" && <ContactModal />}</>;
 }
