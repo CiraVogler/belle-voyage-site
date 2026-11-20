@@ -372,14 +372,14 @@ export function Line() {
          land in the enquiry form, and the browser's own scroll-into-view then
          moved the document out from under a camera that was holding still —
          lenis.stop() does not prevent that, it only stops wheel and touch. */
-      const contain = (on: boolean) => {
+      const contain = (on: boolean, lockMasthead = on) => {
         const mh = document.querySelector<HTMLElement>(".mh");
         const ct = document.querySelector<HTMLElement>(".ct");
         /* The fallback nav is the one live thing left inside <main>, and it
            slides itself up on focus — so without this, Tab out of the About
            panel raised it over the excursion it was meant to be behind. */
         const fb = document.querySelector<HTMLElement>(".ln-fallback");
-        if (mh) mh.inert = on;
+        if (mh) mh.inert = lockMasthead;
         if (ct) ct.inert = on;
         if (fb) fb.inert = on;
       };
@@ -387,7 +387,7 @@ export function Line() {
       let trip = 0;
       let wanted = false;
       const arrive = () => {
-        contain(true);
+        contain(true, false);
         render();
         gsap.to(".ln-say", { opacity: 0, duration: 0.35, ease: "power1.out" });
         gsap.to(away, { x: ABOUT_CAM.x, y: ABOUT_CAM.y, duration: 1.15,
