@@ -1048,3 +1048,23 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 @media(prefers-reduced-motion:reduce){
   .ln-hero-overlay{display:none;}
 }
+
+/* Actual homepage flow: the luxury hero is in normal document flow,
+   immediately followed by Get in touch. No railway is mounted. */
+.home-intro{position:fixed; inset:0; z-index:200; background:#181818;
+  color:#f5f1e9; display:grid; place-items:center; overflow:hidden;
+  animation:home-intro-out 600ms ease-in 2100ms both;}
+.home-intro-line{position:absolute; top:0; bottom:0; left:18%; width:2px;
+  background:rgba(217,185,133,.2); overflow:hidden;}
+.home-intro-line span{display:block; width:100%; height:100%;
+  background:#d9b985; transform-origin:top; animation:home-intro-draw 1900ms ease-in-out both;}
+.home-intro-wordmark{position:relative; display:flex; flex-direction:column;
+  font-family:Georgia,"Times New Roman",serif; font-size:clamp(40px,7vw,92px);
+  letter-spacing:-.05em; line-height:1; text-align:left;
+  animation:home-intro-rise 1100ms ease-out both;}
+.home-intro-wordmark span:last-child{color:#d9b985;}
+@keyframes home-intro-draw{from{transform:scaleY(0);}to{transform:scaleY(1);}}
+@keyframes home-intro-rise{from{opacity:0; transform:translateY(32px);}
+  to{opacity:1; transform:translateY(0);}}
+@keyframes home-intro-out{to{opacity:0; visibility:hidden;}}
+@media(prefers-reduced-motion:reduce){.home-intro{display:none;}}
