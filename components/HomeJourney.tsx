@@ -20,7 +20,8 @@ export function HomeJourney() {
     const rail = node.querySelector<HTMLElement>(".home-hero-rail");
     if (!intro || !hero || !rail) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const alreadySeen = (() => { try { return sessionStorage.getItem("bv-arrived") === "1"; } catch { return true; } })();
+    const previousRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
     let timeline: gsap.core.Timeline | undefined;
     const measure = () => {
       const box = node.getBoundingClientRect();
@@ -35,9 +36,11 @@ export function HomeJourney() {
     observer.observe(node);
     observer.observe(rail);
     measure();
-    if (reduced || alreadySeen || window.scrollY > 20) {
+    if (reduced) {
+      node.classList.add("home-journey-arrived");
+      window.scrollTo(0, 0);
       getLenis()?.start();
-      return () => observer.disconnect();
+      return () => { observer.disconnect(); window.history.scrollRestoration = previousRestoration; };
     }
     getLenis()?.stop();
     /* Allow layout to settle before calculating the complete stroke length. */
@@ -51,7 +54,10 @@ export function HomeJourney() {
       timeline = gsap.timeline({
         onComplete: () => {
           gsap.set(path, { clearProps: "strokeDasharray,strokeDashoffset" });
-          try { sessionStorage.setItem("bv-arrived", "1"); } catch {}
+          const introHeight = intro.getBoundingClientRect().height;
+          node.classList.add("home-journey-arrived");
+          window.scrollTo(0, Math.max(0, window.scrollY - introHeight));
+          measure();
           getLenis()?.start();
         }
       });
@@ -66,6 +72,7 @@ export function HomeJourney() {
       timeline?.kill();
       observer.disconnect();
       getLenis()?.start();
+      window.history.scrollRestoration = previousRestoration;
     };
   }, []);
   return (
