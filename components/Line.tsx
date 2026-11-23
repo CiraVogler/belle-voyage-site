@@ -11,6 +11,7 @@ import {
 import type { P } from "@/lib/line";
 import { getLenis } from "@/lib/lenis";
 import { Arrow } from "./Arrow";
+import { HomeHero } from "./HomeHero";
 
 /* Rendered twice — at the end of the branch, and flat for anyone without
    motion — so there is one copy of the words, not two to drift. */
@@ -228,7 +229,7 @@ export function Line() {
       /* The intro is what raises the statement, and a second visit in the same
          session never runs it — so without this the sentence is authored,
          rendered, and permanently invisible for everyone who comes back. */
-      if (seen) { settle(); gsap.set(".ln-say", { opacity: 1, y: 0 }); }
+      if (seen) { settle(); gsap.set(".ln-say", { opacity: 1, y: 0 }); gsap.set(".ln-hero-overlay", { opacity: 1, pointerEvents: "auto" }); }
       const runIntro = () => {
         const P = ip.getPointAtLength(intro.u * IL);
         const a = smooth(1 - SLIDE_FROM / IL, 1 - SLIDE_TO / IL, intro.u);
@@ -252,6 +253,7 @@ export function Line() {
             sessionStorage.setItem("bv-arrived", "1");
             settle();
             landed = true;
+            gsap.set(".ln-hero-overlay", { opacity: 1, pointerEvents: "auto" });
             reframe.current = null;
             drop();
             /* The masthead is reachable during the intro, so an overlay can
@@ -557,6 +559,8 @@ export function Line() {
         });
       };
       tl.to(".ln-say", { opacity: 0, duration: 0.3, ease: "power1.out" }, 0.06);
+      tl.to(".ln-hero-overlay", { opacity: 0, duration: 0.9, ease: "power1.inOut" }, 0.2)
+        .set(".ln-hero-overlay", { pointerEvents: "none" }, 1.1);
 
       const onScroll = () => {
         paint();
@@ -662,6 +666,7 @@ export function Line() {
     <>
     <div className="ln" ref={root}>
       <div className="ln-bg" />
+      <div className="ln-hero-overlay"><HomeHero /></div>
       <div className="ln-sheet" ref={sheet} />
       {/* Lives inside .ln, not beside it: the GSAP context scopes every
           selector string to this element, so a heading rendered as a sibling
