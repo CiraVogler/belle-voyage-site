@@ -1097,7 +1097,7 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   content:""; position:absolute;
   left:calc(18vw - var(--pad));
   bottom:calc(100% - 8px);
-  width:32px; height:120svh;
+  width:32px; height:calc(100svh - 8px);
   border-left:2px solid var(--hero-gold);
   border-bottom:2px solid var(--hero-gold);
   border-bottom-left-radius:32px;
@@ -1113,3 +1113,19 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   .home-hero-rail::after{width:20px; border-bottom-left-radius:20px;}
   .home-hero-rail::before{left:calc(18vw - 20px + 20px);}
 }
+
+/* Keep the champagne thread continuous as the opening fades into the hero.
+   Give the editorial copy its own clear column to the right of the thread. */
+.home-hero-content{margin-left:clamp(0px, calc(18vw - var(--pad) + 52px), 310px);
+  width:min(780px, calc(100% - clamp(0px, 18vw - var(--pad) + 52px, 310px)));}
+.home-hero-rail::after{transform-origin:top left;
+  animation:hero-thread-reveal 1100ms ease-out 2050ms both;}
+@keyframes hero-thread-reveal{from{clip-path:inset(0 0 100% 0);}to{clip-path:inset(0 0 0 0);}}
+@media(max-width:600px){
+  .home-intro-line{left:8%;}
+  .home-hero-rail::after{left:calc(8vw - 20px);}
+  .home-hero-rail::before{left:8vw;}
+  .home-hero-content{margin-left:12%;width:88%;}
+  .home-hero h1{font-size:clamp(36px,9vw,56px);}
+}
+@media(prefers-reduced-motion:reduce){.home-hero-rail::after{animation:none;}}
