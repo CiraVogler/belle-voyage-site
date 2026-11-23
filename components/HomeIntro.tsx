@@ -9,3 +9,4 @@ export function HomeIntro() {
       <p className="home-intro-scroll">Scroll to discover <span aria-hidden="true">↓</span></p>
     </section>
   );
+}
