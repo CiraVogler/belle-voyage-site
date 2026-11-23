@@ -1267,3 +1267,16 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   .home-journey .home-hero-card{min-height:72px;padding:12px 16px;}
   .home-journey .home-hero-card-icon{font-size:24px;}
 }
+
+
+/* Join the existing animated SVG stroke to the hero rail with a small
+   deliberate overlap so browser subpixel rounding cannot leave a seam.
+   Do not modify the SVG geometry, draw timing, or opening transition. */
+.home-journey .home-hero-rail::before{
+  left:calc(28px - var(--pad) + 28px);
+}
+@media(max-width:600px){
+  .home-journey .home-hero-rail::before{
+    left:calc(16px - 20px + 28px);
+  }
+}
