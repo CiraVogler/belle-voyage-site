@@ -1367,3 +1367,41 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   .home-journey .home-hero-content{margin-left:20px;width:calc(100% - 20px);}
   .home-journey .home-hero-card{padding:12px;}
 }
+
+
+/* Quiet editorial hero: clickable stops replace the three large cream cards.
+   The rail remains in its original position for the measured gold SVG join. */
+.home-journey .home-hero-bottom{margin-top:clamp(64px,8vw,110px);}
+.home-journey .home-hero-rail{
+  margin-bottom:0;
+  padding-bottom:28px;
+}
+.home-journey .home-hero-rail-stop{
+  color:#f5f1e9;
+  text-decoration:none;
+  cursor:pointer;
+  min-height:48px;
+  padding:12px 8px;
+  font-size:clamp(11px,1.1vw,14px);
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  transition:color .2s ease;
+  touch-action:manipulation;
+}
+.home-journey .home-hero-rail-stop:hover,
+.home-journey .home-hero-rail-stop:focus-visible{color:#d9b985;}
+.home-journey .home-hero-rail-stop:focus-visible{
+  outline:2px solid #d9b985;
+  outline-offset:4px;
+}
+@media(max-width:600px){
+  .home-journey .home-hero-bottom{margin-top:64px;}
+  .home-journey .home-hero-rail{padding-bottom:24px;}
+  .home-journey .home-hero-rail-stop{
+    min-height:48px;
+    padding:12px 4px;
+    font-size:10px;
+    letter-spacing:.06em;
+  }
+}
