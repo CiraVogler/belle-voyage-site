@@ -4,6 +4,7 @@ export function HomeHero() {
   return (
     <section className="home-hero" aria-labelledby="home-hero-title">
       <div className="home-hero-shade" aria-hidden="true" />
+      <div className="home-hero-connecting-line" aria-hidden="true" />
       <div className="home-hero-content">
         <p className="home-hero-kicker">BELLE VOYAGE ESTATES</p>
         <h1 id="home-hero-title">A world of places.<br/><em>A place for you.</em></h1>
