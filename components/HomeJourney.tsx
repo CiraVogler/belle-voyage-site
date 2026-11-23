@@ -27,7 +27,9 @@ export function HomeJourney() {
       const railBox = rail.getBoundingClientRect();
       const x = window.innerWidth <= 600 ? window.innerWidth * .08 : window.innerWidth * .18;
       const y = railBox.top - box.top + 8;
-      setGeometry({ width: box.width, height: box.height, d: `M ${x} 0 L ${x} ${y} L ${x + 32} ${y}` });
+      const d = `M ${x} 0 L ${x} ${y} L ${x + 32} ${y}`;
+      path.setAttribute("d", d);
+      setGeometry({ width: box.width, height: box.height, d });
     };
     const observer = new ResizeObserver(measure);
     observer.observe(node);
