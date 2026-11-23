@@ -23,7 +23,7 @@ export function HomeHero() {
       <div className="home-hero-shade" aria-hidden="true" />
       <div className="home-hero-connecting-line" aria-hidden="true" />
       <div className="home-hero-content">
-        <h1 id="home-hero-title">A world of places.<br/><em>A place for you.</em></h1>
+        <h1 id="home-hero-title">Homes without borders.<br/><em>All in one place.</em></h1>
         <p className="home-hero-description">Discover exceptional properties across borders.</p>
         <Link className="home-hero-cta" href="/properties">Explore properties <span aria-hidden="true">↗</span></Link>
       </div>
