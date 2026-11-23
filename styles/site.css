@@ -451,7 +451,7 @@ html.menu-open, html.menu-open body{overflow:hidden;}
 .cm-panel{position:relative; max-height:calc(100dvh - var(--pad) * 2 - 2px);
   overflow-y:auto; padding:clamp(28px,4vw,48px);}
 .cm-panel ::selection{background:#fff; color:#000;}
-.cm-panel h2{font-size:clamp(30px,4.4vw,52px); letter-spacing:-.045em;
+.cm-panel h2{font-size:clamp(30px,4.4vw,48px); letter-spacing:-.045em;
   margin:0 0 clamp(20px,3dvh,32px);}
 
 .cm-x{position:absolute; z-index:3; top:8px; right:8px; width:44px; height:44px;
@@ -990,7 +990,7 @@ html.menu-open, html.menu-open body{overflow:hidden;}
 .home-hero h1 em{font-weight:400; color:var(--hero-gold);}
 .home-hero-accent{width:88px; height:2px; background:var(--hero-gold); margin:28px 0;}
 .home-hero-description{font-size:clamp(17px,1.7vw,23px); max-width:520px; line-height:1.4;}
-.home-hero-cta{margin-top:28px; min-height:52px; width:max-content; max-width:100%;
+.home-hero-cta{margin-top:28px; min-height:48px; width:max-content; max-width:100%;
   display:inline-flex; gap:28px; align-items:center; justify-content:space-between;
   border:1px solid var(--hero-gold); border-radius:4px; padding:12px 24px;
   text-transform:uppercase; letter-spacing:.14em; font-size:12px; font-weight:700;
@@ -1116,8 +1116,8 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 
 /* Keep the champagne thread continuous as the opening fades into the hero.
    Give the editorial copy its own clear column to the right of the thread. */
-.home-hero-content{margin-left:clamp(0px, calc(18vw - var(--pad) + 52px), 310px);
-  width:min(780px, calc(100% - clamp(0px, 18vw - var(--pad) + 52px, 310px)));}
+.home-hero-content{margin-left:clamp(0px, calc(18vw - var(--pad) + 48px), 320px);
+  width:min(780px, calc(100% - clamp(0px, 18vw - var(--pad) + 48px, 320px)));}
 .home-hero-rail::after{transform-origin:top left;
   animation:hero-thread-reveal 1100ms ease-out 2050ms both;}
 @keyframes hero-thread-reveal{from{clip-path:inset(0 0 100% 0);}to{clip-path:inset(0 0 0 0);}}
