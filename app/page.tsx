@@ -1,6 +1,6 @@
 import { Masthead } from "@/components/Masthead";
-import { HomeIntro } from "@/components/HomeIntro";
-import { HomeHero } from "@/components/HomeHero";
+
+import { HomeJourney } from "@/components/HomeJourney";
 import { HomeTransition } from "@/components/HomeTransition";
 import { Contact } from "@/components/Contact";
 import { Scroll } from "@/components/Scroll";
@@ -10,9 +10,8 @@ export default function Page() {
   return (
     <Scroll>
       <Masthead />
-      <HomeIntro />
       <main>
-        <HomeHero />
+        <HomeJourney />
         <HomeTransition />
         <Contact />
       </main>
