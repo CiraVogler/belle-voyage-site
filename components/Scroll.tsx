@@ -18,9 +18,7 @@ export function Scroll({ children }: { children: React.ReactNode }) {
     setLenis(lenis);
     /* Held until the ride finishes. overflow:hidden never did this — Lenis is
        not the document scroller. */
-    let held = false;
-    try { held = !sessionStorage.getItem("bv-arrived"); } catch {}
-    if (held) lenis.stop();
+    if (document.querySelector(".home-journey")) lenis.stop();
     lenis.on("scroll", ScrollTrigger.update);
 
     const raf = (time: number) => lenis.raf(time * 1000);
