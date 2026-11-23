@@ -1068,3 +1068,22 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   to{opacity:1; transform:translateY(0);}}
 @keyframes home-intro-out{to{opacity:0; visibility:hidden;}}
 @media(prefers-reduced-motion:reduce){.home-intro{display:none;}}
+
+/* Scroll-driven champagne thread between the real homepage and contact.
+   This is a normal document section, never a cover or a pinned railway. */
+.home-transition{position:relative; height:clamp(220px,42vh,440px);
+  background:linear-gradient(180deg,#171b19 0%,#252822 45%,#f5f1e9 100%);
+  overflow:hidden; isolation:isolate;}
+.home-transition-glow{position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 15%,rgba(217,185,133,.19),transparent 60%);
+  pointer-events:none;}
+.home-transition-line{position:absolute; left:50%; top:0; height:88%; width:2px;
+  background:linear-gradient(180deg,#d9b985,#d9b985 80%,rgba(217,185,133,.55));
+  transform-origin:top center; transform:scaleY(1);
+  box-shadow:0 0 20px rgba(217,185,133,.3);}
+.home-transition-end{position:absolute; left:50%; top:88%; width:12px; height:12px;
+  border:2px solid #c4ab83; border-radius:50%; transform:translate(-50%,-50%);
+  background:#f5f1e9;}
+.home-transition + .ct{position:relative;}
+@media(max-width:600px){.home-transition{height:240px;}}
+@media(prefers-reduced-motion:reduce){.home-transition-line{transform:none;}}
