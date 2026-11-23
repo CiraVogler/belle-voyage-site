@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ContactModal } from "./ContactModal";
-import { STOPS } from "@/lib/line";
+
 import { getView, onView, openContact, setView, type View } from "@/lib/overlay";
 import { getLenis } from "@/lib/lenis";
 
@@ -68,17 +68,34 @@ export function Masthead({ secondary = false }: { secondary?: boolean }) {
 
       {open && <button type="button" className="mh-backdrop" aria-label="Close menu" onClick={() => setView(null)} />}
       <div id="mh-menu" className="mh-menu" data-open={open} hidden={!open}>
-        <nav aria-label="Primary">
-          {STOPS.map((s) => (
-            /* Contact is a stop, not a page — it opens over the blur rather
-               than replacing it. */
-            <a key={s.label} href={secondary && s.href === "#about" ? "/#about" : s.href}
-              onClick={s.href === "#contact" ? openContact : () => setView(null)}>
-              {s.label}</a>
-          ))}
-        </nav>
-        <div className="mh-legal">
-          {LEGAL.map((l) => <a key={l.label} href={l.href} onClick={() => setView(null)}>{l.label}</a>)}
+        <div className="mh-menu-content">
+          <div className="mh-menu-heading">
+            <span>BELLE VOYAGE ESTATES</span>
+            <span className="mh-menu-rule" aria-hidden="true" />
+          </div>
+          <nav aria-label="Primary" className="mh-menu-nav">
+            <span className="mh-menu-label">EXPLORE</span>
+            <a href="/properties" onClick={() => setView(null)}>Properties</a>
+            <a href="/properties?market=ca" onClick={() => setView(null)}>Destinations</a>
+            <a href={secondary ? "/#about" : "#about"} onClick={() => setView(null)}>About Us</a>
+            <a href="#contact" onClick={openContact}>Contact</a>
+          </nav>
+          <div className="mh-menu-partners">
+            <span className="mh-menu-label">WORK WITH US</span>
+            <a href="/owners" onClick={() => setView(null)}>List Your Property <span aria-hidden="true">↗</span></a>
+            <a href="mailto:ciravogler@bellevoyageestates.com?subject=Partnership%20Inquiry" onClick={() => setView(null)}>Partnership Inquiries <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div className="mh-menu-footer">
+          <a className="mh-instagram" href="https://www.instagram.com/bellevoyageestates/" target="_blank" rel="noopener noreferrer">
+            <span>INSTAGRAM · @BELLEVOYAGEESTATES</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <p>Discover properties beyond borders.</p>
+          <span className="mh-menu-copyright">© 2026 Belle Voyage Estates</span>
+          <div className="mh-legal">
+            {LEGAL.map((l) => <a key={l.label} href={l.href} onClick={() => setView(null)}>{l.label}</a>)}
+          </div>
         </div>
       </div>
     </>
