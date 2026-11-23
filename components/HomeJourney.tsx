@@ -26,7 +26,7 @@ export function HomeJourney() {
     const measure = () => {
       const box = node.getBoundingClientRect();
       const railBox = rail.getBoundingClientRect();
-      const x = window.innerWidth <= 600 ? window.innerWidth * .08 : window.innerWidth * .18;
+      const x = window.innerWidth <= 600 ? 16 : 28;
       const y = railBox.top - box.top + 8;
       const d = `M ${x} 0 L ${x} ${y} L ${x + 32} ${y}`;
       path.setAttribute("d", d);
