@@ -1087,3 +1087,29 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 .home-transition + .ct{position:relative;}
 @media(max-width:600px){.home-transition{height:240px;}}
 @media(prefers-reduced-motion:reduce){.home-transition-line{transform:none;}}
+
+/* One continuous champagne track: the opening's line at 18vw continues
+   down the hero's left edge, rounds the corner, then joins the existing rail. */
+.home-hero{isolation:isolate;}
+.home-hero-connecting-line{display:none;}
+.home-hero-rail{isolation:isolate;}
+.home-hero-rail::after{
+  content:""; position:absolute;
+  left:calc(18vw - var(--pad));
+  bottom:calc(100% - 9px);
+  width:32px; height:120svh;
+  border-left:2px solid var(--hero-gold);
+  border-bottom:2px solid var(--hero-gold);
+  border-bottom-left-radius:32px;
+  pointer-events:none; z-index:0;
+  filter:drop-shadow(0 0 5px rgba(196,171,131,.24));
+}
+.home-hero-rail::before{
+  left:calc(18vw - var(--pad) + 32px);
+  right:0; border-radius:0 2px 2px 0;
+}
+.home-hero-rail-stop{z-index:1;}
+@media(max-width:600px){
+  .home-hero-rail::after{width:20px; border-bottom-left-radius:20px;}
+  .home-hero-rail::before{left:calc(18vw - 20px + 20px);}
+}
