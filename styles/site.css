@@ -1168,3 +1168,26 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 
 /* Exact junction measured from the live rail, including responsive card heights. */
 .home-hero-connecting-line{height:var(--thread-length, 70%);}
+
+/* Automatic cinematic arrival: the SVG is one uninterrupted, fully opaque
+   champagne stroke spanning both sections. Only the surroundings blend. */
+.home-journey{position:relative;isolation:isolate;}
+.home-journey-thread{position:absolute;inset:0;z-index:8;pointer-events:none;
+  overflow:visible;opacity:1;}
+.home-journey .home-intro{background:linear-gradient(180deg,
+  #181818 0%,#181818 52%,#262622 78%,#41423b 92%,#5c5c52 100%);
+  min-height:100svh;}
+.home-journey .home-intro-line{display:none;}
+.home-journey .home-intro-scroll{display:none;}
+.home-journey .home-intro-wordmark{animation:home-intro-rise 1100ms ease-out both;}
+.home-journey .home-hero-connecting-line{display:none;}
+.home-journey .home-hero-rail::after{display:none;}
+.home-journey .home-hero-rail::before{left:calc(var(--thread-x) - var(--pad) + 32px);}
+.home-journey .home-hero{background-color:#5c5c52;}
+.home-journey .home-hero::before{background:linear-gradient(180deg,
+  rgba(92,92,82,.94) 0%,rgba(92,92,82,.55) 12%,transparent 36%);}
+@media(prefers-reduced-motion:reduce){
+  .home-journey .home-intro{display:none;}
+  .home-journey-thread{display:none;}
+  .home-journey .home-hero-rail::before{left:0;}
+}
