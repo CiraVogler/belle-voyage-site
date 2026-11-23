@@ -1096,7 +1096,7 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 .home-hero-rail::after{
   content:""; position:absolute;
   left:calc(18vw - var(--pad));
-  bottom:calc(100% - 9px);
+  bottom:calc(100% - 8px);
   width:32px; height:120svh;
   border-left:2px solid var(--hero-gold);
   border-bottom:2px solid var(--hero-gold);
