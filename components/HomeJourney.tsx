@@ -39,6 +39,7 @@ export function HomeJourney() {
       getLenis()?.start();
       return () => observer.disconnect();
     }
+    getLenis()?.stop();
     /* Allow layout to settle before calculating the complete stroke length. */
     const frame = requestAnimationFrame(() => {
       measure();
