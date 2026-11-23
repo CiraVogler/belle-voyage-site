@@ -979,7 +979,7 @@ html.menu-open, html.menu-open body{overflow:hidden;}
 .home-hero{--hero-gold:#d9b985; position:relative; min-height:100svh;
   background:#181818 url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2400&q=85") center/cover no-repeat;
   color:#f5f1e9; display:flex; flex-direction:column; justify-content:space-between;
-  padding:clamp(96px,12vh,160px) var(--pad) 32px; isolation:isolate;}
+  padding:clamp(88px,12vh,168px) var(--pad) 32px; isolation:isolate;}
 .home-hero-shade{position:absolute; inset:0; z-index:-1;
   background:linear-gradient(90deg,rgba(12,15,14,.78),rgba(12,15,14,.22) 72%),
     linear-gradient(0deg,rgba(12,15,14,.85),transparent 58%);}
@@ -1002,7 +1002,7 @@ html.menu-open, html.menu-open body{overflow:hidden;}
 .home-hero-rail::before{content:""; position:absolute; left:0; right:0;
   top:8px; height:2px; background:var(--hero-gold); opacity:.85;}
 .home-hero-rail-stop{position:relative; display:flex; flex-direction:column;
-  align-items:center; gap:14px; font-size:12px; letter-spacing:.2em;
+  align-items:center; gap:12px; font-size:12px; letter-spacing:.2em;
   text-transform:uppercase; font-weight:700;}
 .home-hero-rail-stop i{width:18px; height:18px; background:#181818;
   border:2px solid var(--hero-gold); border-radius:50%;}
@@ -1014,7 +1014,7 @@ html.menu-open, html.menu-open body{overflow:hidden;}
 .home-hero-card-icon{font-size:40px; font-weight:400; line-height:1; flex-shrink:0;}
 .home-hero-card strong{display:block; font-family:Georgia,"Times New Roman",serif;
   font-size:clamp(19px,1.7vw,26px); font-weight:400; letter-spacing:-.03em;}
-.home-hero-card small{display:block; font-size:13px; margin-top:6px; line-height:1.4;}
+.home-hero-card small{display:block; font-size:13px; margin-top:8px; line-height:1.4;}
 .home-hero-card-arrow{margin-left:auto; font-size:22px; align-self:center;}
 /* The opening hero is dark regardless of the theme selected for document pages. */
 body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
@@ -1025,7 +1025,7 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   .home-hero-card-arrow{display:none;}
 }
 @media(max-width:600px){
-  .home-hero{padding:100px 20px 24px; background-position:60% center;}
+  .home-hero{padding:104px 20px 24px; background-position:60% center;}
   .home-hero-kicker{margin-bottom:20px;}
   .home-hero h1{font-size:clamp(40px,11vw,64px);}
   .home-hero-accent{margin:20px 0;}
