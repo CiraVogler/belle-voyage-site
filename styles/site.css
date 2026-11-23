@@ -1039,3 +1039,12 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   .home-hero-card small{font-size:12px; margin-top:2px;}
   .home-hero-card-arrow{display:block; font-size:18px;}
 }
+
+/* Brand introduction stays first. At its landing, the cinematic discovery
+   screen overlays the original navigation stops, then yields to the regions. */
+.ln-hero-overlay{position:absolute; inset:0; z-index:12;
+  opacity:0; pointer-events:none; overflow-y:auto; overscroll-behavior:contain;}
+.ln-hero-overlay .home-hero{min-height:100%; height:auto;}
+@media(prefers-reduced-motion:reduce){
+  .ln-hero-overlay{display:none;}
+}
