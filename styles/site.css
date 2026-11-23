@@ -1116,7 +1116,7 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 
 /* Keep the champagne thread continuous as the opening fades into the hero.
    Give the editorial copy its own clear column to the right of the thread. */
-.home-hero-content{margin-left:clamp(0px, calc(18vw - var(--pad) + 48px), 300px);
+.home-hero-content{margin-left:clamp(0px, calc(18vw - var(--pad) + 48px), 110px);
   width:min(780px, calc(100% - clamp(0px, 18vw - var(--pad) + 48px, 300px)));}
 .home-hero-rail::after{transform-origin:top left;
   animation:hero-thread-reveal 1100ms ease-out 2050ms both;}
