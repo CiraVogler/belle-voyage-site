@@ -1165,3 +1165,6 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   .home-hero-content{margin-left:12%;width:88%;}
 }
 @media(prefers-reduced-motion:reduce){.home-intro{display:grid;}}
+
+/* Exact junction measured from the live rail, including responsive card heights. */
+.home-hero-connecting-line{height:var(--thread-length, 70%);}
