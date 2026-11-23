@@ -1196,3 +1196,21 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
    The main hero becomes the top of the document; the gold stroke remains. */
 .home-journey-arrived .home-intro{display:none;}
 .home-journey-arrived .home-journey-thread{pointer-events:none;}
+
+/* Keep the hero headline and supporting copy fully to the right of the
+   fixed gold thread; do not alter the approved intro animation or its path. */
+@media(min-width:601px){
+  .home-journey .home-hero-content{
+    box-sizing:border-box;
+    margin-left:calc(18vw - var(--pad) + 64px);
+    width:min(780px, calc(82vw - 64px - var(--pad)));
+    max-width:100%;
+  }
+}
+@media(max-width:600px){
+  .home-journey .home-hero-content{
+    box-sizing:border-box;
+    margin-left:calc(8vw - 20px + 28px);
+    width:calc(100% - 8vw - 28px);
+  }
+}
