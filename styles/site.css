@@ -1191,3 +1191,8 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   .home-journey-thread{display:none;}
   .home-journey .home-hero-rail::before{left:0;}
 }
+
+/* Once the automatic arrival completes, the opening is no longer scrollable.
+   The main hero becomes the top of the document; the gold stroke remains. */
+.home-journey-arrived .home-intro{display:none;}
+.home-journey-arrived .home-journey-thread{pointer-events:none;}
