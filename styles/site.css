@@ -607,7 +607,7 @@ html.menu-open, html.menu-open body{overflow:hidden;}
   /* No masthead on this route — Masthead is mounted in app/page.tsx alone —
      so the 46px it used to clear was pushing a centred block off centre. */
   padding:var(--pad);}
-.nf-line{width:min(320px, 74vw); height:auto; margin-bottom:clamp(8px,2dvh,24px);}
+.nf-line{width:min(300px, 74vw); height:auto; margin-bottom:clamp(8px,2dvh,24px);}
 .nf-code{margin:0; font-size:var(--t-warn); font-weight:700; letter-spacing:.16em;
   color:var(--muted);}
 .nf h1{margin:0; font-size:var(--t-dir); letter-spacing:-.04em; line-height:1.02;
@@ -1116,8 +1116,8 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 
 /* Keep the champagne thread continuous as the opening fades into the hero.
    Give the editorial copy its own clear column to the right of the thread. */
-.home-hero-content{margin-left:clamp(0px, calc(18vw - var(--pad) + 48px), 320px);
-  width:min(780px, calc(100% - clamp(0px, 18vw - var(--pad) + 48px, 320px)));}
+.home-hero-content{margin-left:clamp(0px, calc(18vw - var(--pad) + 48px), 300px);
+  width:min(780px, calc(100% - clamp(0px, 18vw - var(--pad) + 48px, 300px)));}
 .home-hero-rail::after{transform-origin:top left;
   animation:hero-thread-reveal 1100ms ease-out 2050ms both;}
 @keyframes hero-thread-reveal{from{clip-path:inset(0 0 100% 0);}to{clip-path:inset(0 0 0 0);}}
