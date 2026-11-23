@@ -897,3 +897,27 @@ html.menu-open, html.menu-open body{overflow:hidden;}
     letter-spacing:.08em; text-transform:uppercase;}
   .pr-detail .pr-shot{display:none;}
 }
+
+/* Compact right-hand menu; the remainder of the page stays visible as a
+   blurred, dismissible backdrop. The burger remains above both layers. */
+.mh-backdrop{position:fixed; inset:0; z-index:54; width:100%; height:100%;
+  padding:0; border:0; cursor:pointer;
+  background:color-mix(in srgb, var(--paper) 42%, transparent);
+  backdrop-filter:blur(16px) saturate(1.15);
+  -webkit-backdrop-filter:blur(16px) saturate(1.15);}
+.mh-menu{inset:0 0 0 auto; width:min(420px, 84vw); max-width:100%;
+  height:100dvh; padding:calc(var(--pad) + 80px) var(--pad) max(var(--pad), env(safe-area-inset-bottom));
+  background:var(--paper); border-left:1px solid var(--rule);
+  backdrop-filter:none; -webkit-backdrop-filter:none;
+  overflow-y:auto; overscroll-behavior:contain;}
+.mh-legal{gap:8px 20px;}
+@supports not (backdrop-filter:blur(1px)){
+  .mh-backdrop{background:color-mix(in srgb, var(--paper) 78%, transparent);}
+}
+@media(prefers-reduced-transparency:reduce){
+  .mh-backdrop{background:color-mix(in srgb, var(--paper) 90%, transparent);
+    backdrop-filter:none; -webkit-backdrop-filter:none;}
+}
+@media(max-height:520px) and (orientation:landscape){
+  .mh-menu{padding:72px var(--pad) 20px;}
+}
