@@ -66,6 +66,7 @@ export function Masthead({ secondary = false }: { secondary?: boolean }) {
 
     </div>
 
+      {open && <button type="button" className="mh-backdrop" aria-label="Close menu" onClick={() => setView(null)} />}
       <div id="mh-menu" className="mh-menu" data-open={open} hidden={!open}>
         <nav aria-label="Primary">
           {STOPS.map((s) => (
