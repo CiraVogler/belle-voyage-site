@@ -1788,3 +1788,18 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   }
 }
 @media(max-width:600px){.about-journey-list{padding-left:32px;margin-top:32px;}.about-journey-list>li::before{left:-24px;}.about-journey-list>li{padding-bottom:28px;}}
+
+
+/* About: minimalist closing signature. */
+.about-vision-signature{position:relative;text-align:center;margin-top:48px;padding:48px 0 24px;}
+.about-vision-signature::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:#d9b985;transform-origin:left;}
+.about-vision-signature h3{font-family:Georgia,serif;font-weight:400;font-size:clamp(28px,4vw,48px);line-height:1.2;color:#f4efe6;margin:0 0 16px;}
+.about-vision-signature p{font-size:11px;letter-spacing:.2em;color:#d9b985;margin:0;}
+.about-vision .about-actions{justify-content:center;gap:24px;margin-top:24px;}
+.about-vision .about-actions a,.about-vision .about-actions a:first-child{background:transparent;border:0;color:#d9b985;padding:8px 0;gap:8px;}
+@keyframes bve-vision-line{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .about-vision-signature::before{animation:bve-vision-line linear both;animation-timeline:view();animation-range:entry 0% entry 100%;}
+  }
+}
