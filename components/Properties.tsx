@@ -18,22 +18,24 @@ import { MARKETS, PROPERTIES, monthly, priceOf, shapeOf, summary,
    whole register; what is wanted is a diagram that happens to be accurate.
    Colours are read from the tokens so the map follows the theme. */
 function style() {
-  const cs = getComputedStyle(document.documentElement);
+  const cs = getComputedStyle(document.querySelector(".pr") ?? document.documentElement);
   const v = (n: string, f: string) => cs.getPropertyValue(n).trim() || f;
   return {
     version: 8 as const,
     sources: { omt: { type: "vector" as const, url: "https://tiles.openfreemap.org/planet" } },
     layers: [
       { id: "ground", type: "background" as const,
-        paint: { "background-color": v("--panel", "#F5F7F8") } },
+        paint: { "background-color": v("--panel", "#e5e7dc") } },
       { id: "water", type: "fill" as const, source: "omt", "source-layer": "water",
-        paint: { "fill-color": v("--water", "#E7EFF4") } },
+        paint: { "fill-color": v("--water", "#d5ddd4") } },
       { id: "border", type: "line" as const, source: "omt", "source-layer": "boundary",
         filter: ["<=", ["get", "admin_level"], 2] as unknown as never,
-        paint: { "line-color": v("--rule", "#C9D3DA"), "line-width": 1 } },
+        paint: { "line-color": v("--rule", "#b7bbaa"), "line-width": 1 } },
     ],
   };
 }
+
+const marketColour = (market: Market) => ({ ca: "#a98b60", us: "#78856d", eu: "#586b64" })[market];
 
 function glyph(kind: string, colour: string) {
   const el = document.createElement("button");
@@ -160,7 +162,7 @@ export function Properties({ initial }: { initial: Market | "all" }) {
     pins.current.forEach((pin) => pin.remove());
     pins.current.clear();
     shown.forEach((p) => {
-      const colour = MARKETS.find((x) => x.code === p.market)!.colour;
+      const colour = marketColour(p.market);
       const el = glyph(shapeOf(p.kind), colour);
       el.addEventListener("click", () => { from.current = "map"; setSel(p.id);
         if (matchMedia("(max-width:900px)").matches) { setMobileView("list"); setOpen(p.id); }
@@ -232,7 +234,7 @@ export function Properties({ initial }: { initial: Market | "all" }) {
           </button>
           {MARKETS.map((mk) => (
             <button key={mk.code} type="button" data-on={market === mk.code}
-              style={{ ["--c" as string]: mk.colour }} onClick={() => setMarket(mk.code)}>
+              style={{ ["--c" as string]: marketColour(mk.code) }} onClick={() => setMarket(mk.code)}>
               {mk.name}<span>{others.filter((p) => p.market === mk.code).length}</span>
             </button>
           ))}
