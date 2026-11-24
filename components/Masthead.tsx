@@ -77,7 +77,7 @@ export function Masthead({ secondary = false }: { secondary?: boolean }) {
             <span className="mh-menu-label">EXPLORE</span>
             <a href="/properties" onClick={() => setView(null)}>Properties</a>
             <a href="/properties?market=ca" onClick={() => setView(null)}>Destinations</a>
-            <a href={secondary ? "/#about" : "#about"} onClick={() => setView(null)}>About Us</a>
+            <a href="/about" onClick={() => setView(null)}>About Us</a>
             <a href="#contact" onClick={openContact}>Contact</a>
           </nav>
           <div className="mh-menu-partners">
