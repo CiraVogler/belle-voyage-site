@@ -45,15 +45,18 @@ export default function AboutPage() {
       </section>
 
       <section className="about-section about-how">
-        <div className="about-section-label">02 / HOW IT WORKS</div>
+        <div className="about-section-label">02 / YOUR JOURNEY</div>
         <div className="about-section-body">
-          <h2>Discover here.<br /><em>Connect directly.</em></h2>
-          <p>Belle Voyage Estates is a property discovery and promotional platform. We showcase properties and accommodations, helping visitors explore options and connect with the relevant owner, host, or real estate professional.</p>
-          <div className="about-steps">
-            <div><span>01</span><h3>Explore</h3><p>Browse places and discover what suits your plans.</p></div>
-            <div><span>02</span><h3>Find your fit</h3><p>Consider the location, details, and price that feel right for you.</p></div>
-            <div><span>03</span><h3>Connect</h3><p>Follow the listing or enquiry route to the person responsible for the property.</p></div>
-          </div>
+          <h2>Different journeys.<br /><em>One place to begin.</em></h2>
+          <p>Not everyone is looking for the same thing. Some are looking for an escape, others for a fresh start, a place to call home, or an opportunity beyond their own borders. Whatever brings you here, there is a place for you at Belle Voyage Estates.</p>
+          <ol className="about-journey-list">
+            <li><h3>For the explorers.</h3><p>A weekend away. A summer abroad. Somewhere you&apos;ve always wanted to experience.</p></li>
+            <li><h3>For the new beginnings.</h3><p>A new city. A new chapter. A place to build the life you&apos;ve imagined.</p></li>
+            <li><h3>For those seeking home.</h3><p>Somewhere to settle, whether for a few months or a lifetime.</p></li>
+            <li><h3>For the visionaries.</h3><p>A property to call your own. An investment in your future.</p></li>
+            <li><h3>For those reaching further.</h3><p>New markets, new connections, and opportunities to introduce your property to the world.</p></li>
+          </ol>
+          <p className="about-journey-signature">Different reasons. Endless possibilities. One Belle Voyage.</p>
           <p className="about-clarity">We are a promotional and discovery platform, not the seller, landlord, or booking provider for third-party listings. Availability and transaction terms are confirmed directly with the relevant provider.</p>
         </div>
       </section>
