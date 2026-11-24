@@ -23,9 +23,13 @@ export default function AboutPage() {
       <section className="about-section about-story" id="our-story">
         <div className="about-section-label">01 / THE BEGINNING</div>
         <div className="about-section-body">
-          <h2>Built on curiosity.<br /><em>Made for connection.</em></h2>
-          <p>Belle Voyage Estates began with a simple idea: beautiful places deserve to be discovered, wherever they happen to be. Founded in Ontario, Canada, the business was created to make exploring property and accommodation across borders feel more approachable.</p>
-          <p>From city apartments to distinctive stays, our ambition is to bring together opportunities worth exploring and make it easier to connect with the people behind them.</p>
+          <h2>The Beginning of<br /><em>Belle Voyage Estates.</em></h2>
+          <p>The foundations of Belle Voyage Estates date back to 2024, when founder Cira Vogler began exploring international real estate investment opportunities across Europe.</p>
+          <p>Through researching foreign property markets, evaluating potential investments, and navigating international real estate processes, she encountered several challenges. Finding reliable property information, understanding local regulations, and establishing connections with knowledgeable industry professionals often proved unnecessarily complicated.</p>
+          <p>Further conversations with fellow investors and international travelers revealed that these challenges were not isolated experiences. Many faced similar difficulties when researching overseas investments, securing accommodations, or navigating unfamiliar property markets.</p>
+          <p>Recognizing this gap in the industry, the concept behind Belle Voyage Estates began to evolve from international property investment into a broader property discovery and promotional platform.</p>
+          <p><strong>Belle Voyage Estates was developed with a clear purpose: to simplify international property discovery by connecting individuals with properties, relevant information, and trusted industry professionals across borders.</strong></p>
+          <p>Today, that vision continues to guide the company&apos;s development, with an emphasis on accessibility, international connections, and making the process of discovering properties abroad more straightforward.</p>
         </div>
       </section>
 
