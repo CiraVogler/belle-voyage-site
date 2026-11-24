@@ -1767,4 +1767,4 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 }
 
 /* Lower the founder portrait to begin beside the third story paragraph. */
-@media(min-width:701px){.about-story-aside .about-founder-placeholder{margin-top:30vw;}}
+@media(min-width:701px){.about-story-aside .about-founder-placeholder{margin-top:15vw;}}
