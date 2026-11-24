@@ -21,7 +21,13 @@ export default function AboutPage() {
       </section>
 
       <section className="about-section about-story" id="our-story">
-        <div className="about-section-label">01 / THE BEGINNING</div>
+        <div className="about-story-aside">
+          <div className="about-section-label">01 / THE BEGINNING</div>
+          <div className="about-founder-placeholder" role="img" aria-label="Reserved space for a future founder portrait">
+            <span>FOUNDER PORTRAIT</span>
+            <small>Photograph coming soon</small>
+          </div>
+        </div>
         <div className="about-section-body">
           <h2>The Beginning of<br /><em>Belle Voyage Estates.</em></h2>
           <p>The foundations of Belle Voyage Estates date back to 2024, when founder Cira Vogler began exploring international real estate investment opportunities across Europe.</p>
