@@ -27,8 +27,13 @@ export function HomeJourney() {
       const box = node.getBoundingClientRect();
       const railBox = rail.getBoundingClientRect();
       const x = window.innerWidth <= 600 ? 16 : 28;
-      const y = railBox.top - box.top + 8;
-      const d = `M ${x} 0 L ${x} ${y} L ${x + 32} ${y}`;
+      const railStyle = window.getComputedStyle(rail, "::before");
+      const railLeft = parseFloat(railStyle.left) || 0;
+      const railTop = parseFloat(railStyle.top) || 0;
+      const railHeight = parseFloat(railStyle.height) || 2;
+      const y = railBox.top - box.top + railTop + railHeight / 2;
+      const endX = railBox.left - box.left + railLeft + 2;
+      const d = `M ${x} 0 L ${x} ${y} L ${endX} ${y}`;
       path.setAttribute("d", d);
       setGeometry({ width: box.width, height: box.height, d });
     };
