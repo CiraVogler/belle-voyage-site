@@ -1606,3 +1606,21 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   .stories-invite-aside{display:none;}
   .stories-footer{padding:32px 24px;}
 }
+
+/* A horizontally browsable collection of genuine-review slots.
+   No invented names, star ratings or testimonials. */
+.stories-voices-intro{max-width:600px;margin:32px 0 40px;color:#5f665d;line-height:1.8;font-size:16px;}
+.stories-gallery{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,38%);gap:20px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scroll-padding-inline:2px;padding:4px 2px 24px;scrollbar-color:#b99b6a transparent;scrollbar-width:thin;}
+.stories-story-card{scroll-snap-align:start;min-height:420px;display:flex;flex-direction:column;align-items:flex-start;padding:40px 32px;background:#ebe5d9;border:1px solid rgba(41,47,42,.15);}
+.stories-story-card:nth-child(even){background:#e5e7dc;}
+.stories-card-index{font-size:10px;letter-spacing:.15em;color:#777e6b;font-weight:600;}
+.stories-card-quote{font-family:Georgia,serif;font-size:76px;line-height:1;color:#b99b6a;margin-top:24px;}
+.stories-story-card h3{font-family:Georgia,serif;font-weight:400;font-size:clamp(26px,3vw,40px);line-height:1.2;margin:8px 0 20px;}
+.stories-story-card p{font-size:15px;line-height:1.75;color:#5f665d;max-width:34ch;}
+.stories-card-status,.stories-card-link{margin-top:auto;padding-top:32px;font-size:10px;letter-spacing:.14em;color:#777e6b;}
+.stories-card-link{color:#292f2a;text-decoration:underline;text-underline-offset:4px;}
+.stories-gallery-note{margin-top:20px;font-size:12px;color:#777e6b;line-height:1.6;}
+@media(max-width:600px){
+  .stories-gallery{grid-auto-columns:minmax(260px,85%);gap:12px;}
+  .stories-story-card{min-height:400px;padding:32px 24px;}
+}
