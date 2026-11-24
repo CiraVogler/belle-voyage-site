@@ -19,11 +19,22 @@ export default function OwnersPage() {
  }
  return <main className="about-page owners-page">
  <style>{`
- .owners-hero{padding:110px clamp(24px,7vw,92px) 80px;background:#f4f2eb;}
- .owners-hero h1{font:400 clamp(46px,7vw,100px)/1.08 Georgia,serif;letter-spacing:-.045em;margin:32px 0;}
- .owners-hero em{color:#78856d;}
- .owners-hero p{max-width:60ch;line-height:1.8;}
- .owners-hero .about-scroll{color:#515b50;border-color:#b99b6a;}
+ .owners-hero{position:relative;isolation:isolate;min-height:75svh;display:grid;place-items:center;padding:110px 8vw 64px;background:#292f2a;color:#f4efe6;text-align:center;}
+ .owners-invitation{position:relative;width:100%;min-height:48svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px;gap:20px;}
+ .owners-frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;}
+ .owners-frame path{stroke:#b99b6a;stroke-width:1;fill:none;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:0;}
+ .owners-hero h1{font:400 clamp(28px,3.6vw,52px)/1.22 Georgia,serif;letter-spacing:-.025em;margin:8px 0;}
+ .owners-hero em,.owners-hero .about-kicker{color:#d9b985;}
+ .owners-hero p{max-width:60ch;line-height:1.8;margin:0;color:#dedbd0;font-size:clamp(14px,1.2vw,17px);}
+ .owners-hero .owners-short-rule{width:48px;height:1px;background:#d9b985;}
+ .owners-hero .about-scroll{color:#d9b985;border:0;margin-top:16px;padding:0;font-size:10px;letter-spacing:.18em;}
+ .owners-hero::after{content:"";position:absolute;left:50%;bottom:0;height:64px;width:1px;background:#b99b6a;}
+ #owners-platform{position:relative;}
+ #owners-platform::before{content:"";position:absolute;top:0;left:50%;height:32px;width:1px;background:#b99b6a;}
+ @media(prefers-reduced-motion:no-preference){.owners-frame path{animation:owners-frame-draw 1.8s ease-out both;}.owners-invitation> :not(svg){animation:owners-invitation-fade 1.3s ease both;}}
+ @keyframes owners-frame-draw{from{stroke-dashoffset:1;}to{stroke-dashoffset:0;}}
+ @keyframes owners-invitation-fade{from{opacity:0;}to{opacity:1;}}
+ @media(max-width:600px){.owners-hero{padding:110px 24px 64px;}.owners-invitation{padding:40px 16px;gap:16px;}.owners-hero .about-kicker{font-size:9px;}}
  .owners-page .about-section{border-bottom:1px solid #b99b6a;}
  .owners-flow{list-style:none;padding:0;margin:32px 0;text-align:center;display:grid;gap:24px;}
  .owners-flow li{position:relative;border:1px solid #b99b6a;background:#e5e7dc;padding:20px;font:400 22px Georgia,serif;}
@@ -53,7 +64,7 @@ export default function OwnersPage() {
  .owners-dialog .owners-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;}
  @media(max-width:600px){.owners-dialog{padding:20px;}.owners-dialog .owners-grid{grid-template-columns:1fr;}}
  `}</style>
- <section className="owners-hero"><p className="about-kicker">BELLE VOYAGE ESTATES / FOR PROPERTY OWNERS</p><h1>List your property.<br/><em>Reach beyond your borders.</em></h1><p>A straightforward approach to international property promotion, designed for property owners, hosts and real estate professionals.</p><a className="about-scroll" href="#owners-platform">DISCOVER HOW IT WORKS ↓</a></section>
+ <section className="owners-hero" aria-labelledby="owners-title"><div className="owners-invitation"><svg className="owners-frame" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M-9.52 0 H0 V100 H100 V0 H0"/></svg><p className="about-kicker">AN INVITATION TO PARTNER</p><h1 id="owners-title">Somewhere in the world,<br/><em>someone is looking.</em></h1><span className="owners-short-rule" aria-hidden="true"/><p>Let us help them discover what you have to offer.</p><a className="about-scroll" href="#owners-platform">DISCOVER HOW IT WORKS</a></div></section>
  <section className="about-section" id="owners-platform"><div className="about-section-label">01 / THE PLATFORM</div><div className="about-section-body"><h2>What is it?</h2><p>Belle Voyage Estates offers a dedicated platform for promoting residential properties and accommodations to individuals exploring opportunities locally and internationally.</p><p>Whether your property is available for sale, rent or short-term stays, BVE provides an additional avenue for discovery without replacing your existing marketing channels.</p></div></section>
  <section className="about-section"><div className="about-section-label">02 / THE PROCESS</div><div className="about-section-body"><h2>How does it work?</h2><p>Your property is presented on Belle Voyage Estates through photographs, descriptions, relevant property information and a direct connection to your business or listing.</p><ol className="owners-flow"><li>You provide the property.</li><li>BVE promotes the property.</li><li>Interested visitors connect with you.</li></ol><p>You retain control over your pricing, availability, client relationships and transactions. Our role is promotional, allowing you to continue conducting business on your own terms.</p></div></section>
  <section className="about-section owners-payment"><div className="about-section-label">03 / WORKING WITH US</div><div className="about-section-body"><h2>An investment in<br/><em>greater visibility.</em></h2><p>Property promotion through Belle Voyage Estates is a paid service, with pricing tailored to the individual needs of each property owner or business.</p><p>All pricing and partnership arrangements are discussed directly with our team prior to any commitment.</p><p className="owners-note">Every partnership begins with a conversation, not an obligation.</p></div></section>
