@@ -217,7 +217,9 @@ export function Properties({ initial }: { initial: Market | "all" }) {
             <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38.3" fill="none"
               stroke="currentColor" strokeWidth="23.4" /></svg></i>yage&nbsp;Estates
         </a>
-        <h1>Properties</h1>
+        <p className="pr-eyebrow">CURATED PLACES / BELLE VOYAGE ESTATES</p>
+        <h1>Find somewhere <em>that feels like yours.</em></h1>
+        <p className="pr-tagline">Thoughtfully discovered places, wherever life takes you.</p>
         <p className="pr-note" role="note">
           Placeholder listings — this page is a template. None of the properties
           below are real or available.
@@ -244,7 +246,7 @@ export function Properties({ initial }: { initial: Market | "all" }) {
           </button>
         </div>
         <div className="pr-view-switch" role="group" aria-label="Property display">
-          <button type="button" aria-pressed={mobileView === "list"} onClick={() => setMobileView("list")}>List view</button>
+          <button type="button" aria-pressed={mobileView === "list"} onClick={() => setMobileView("list")}>Gallery view</button>
           <button type="button" aria-pressed={mobileView === "map"} onClick={() => setMobileView("map")}>Map view</button>
         </div>
       </header>
@@ -343,6 +345,7 @@ export function Properties({ initial }: { initial: Market | "all" }) {
       </dialog>
 
       <div className="pr-body">
+        <div className="pr-gallery-heading"><span>{shown.length} {shown.length === 1 ? "place" : "places"} to explore</span><span>Browse the collection or switch to the map</span></div>
         <ol className="pr-list">
           {!shown.length && (
             <li className="pr-none">
@@ -362,7 +365,7 @@ export function Properties({ initial }: { initial: Market | "all" }) {
               <button type="button" aria-expanded={open === p.id}
                 aria-controls={open === p.id ? `d-${p.id}` : undefined}
                 onClick={() => { setSel(p.id); setOpen(open === p.id ? null : p.id); }}>
-                <span className="pr-card-photo" aria-hidden="true">Photography to come</span>
+                <span className="pr-card-photo" aria-hidden="true"><span>PROPERTY PHOTOGRAPHY COMING SOON</span></span>
                 <span className="pr-stop" data-kind={shapeOf(p.kind)} aria-hidden="true" />
                 <span className="pr-name">{p.name}</span>
                 <span className="pr-city">{p.city}</span>
@@ -413,7 +416,7 @@ export function Properties({ initial }: { initial: Market | "all" }) {
         </ol>
         {/* No role: it is not an image, and it holds the attribution links the
             licence requires. The list beside it is the accessible copy. */}
-        <div className="pr-map" ref={host} />
+        <div className="pr-map" ref={host} aria-label="Interactive map of property locations" />
       </div>
     </div>
   );
