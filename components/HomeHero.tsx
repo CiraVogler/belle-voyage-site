@@ -24,8 +24,8 @@ export function HomeHero() {
       <div className="home-hero-connecting-line" aria-hidden="true" />
       <div className="home-hero-content">
         <h1 id="home-hero-title">Homes without borders.<br/><em>All in one place.</em></h1>
-        <p className="home-hero-description">Discover exceptional properties across borders.</p>
-        <Link className="home-hero-cta" href="/properties">Explore properties <span aria-hidden="true">↗</span></Link>
+        <p className="home-hero-description">Wherever you're going, there's a place waiting for you.</p>
+        <Link className="home-hero-cta" href="/properties">Start exploring <span aria-hidden="true">↗</span></Link>
       </div>
       <div className="home-hero-bottom">
         <nav className="home-hero-rail" aria-label="Discover, explore, connect">
