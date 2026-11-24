@@ -1753,3 +1753,15 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   .about-steps{grid-template-columns:1fr;gap:24px;}
   .about-footer{flex-wrap:wrap;padding:32px 24px;}
 }
+
+/* Founder portrait placeholder in the About story only. */
+.about-story{grid-template-columns:minmax(220px,.85fr) minmax(0,1.4fr);gap:clamp(32px,5vw,80px);align-items:start;}
+.about-story-aside{min-width:0;}
+.about-story-aside .about-section-label{margin-bottom:32px;}
+.about-founder-placeholder{aspect-ratio:3/4;max-width:440px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;background:linear-gradient(145deg,#e5e7dc,#d2d8cb);border:1px solid #c9c6b8;color:#5e675d;padding:24px;}
+.about-founder-placeholder span{font-size:12px;letter-spacing:.18em;font-weight:600;}
+.about-founder-placeholder small{font-size:13px;color:#697166;}
+@media(max-width:700px){
+  .about-story{grid-template-columns:1fr;gap:32px;}
+  .about-founder-placeholder{width:min(100%,360px);aspect-ratio:4/5;}
+}
