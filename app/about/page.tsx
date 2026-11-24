@@ -41,7 +41,7 @@ export default function AboutPage() {
 
       <section className="about-statement" aria-label="Our philosophy">
         <span className="about-kicker">WHAT WE BELIEVE</span>
-        <p>Great places are not defined by a price tag. They are defined by <em>how they make you feel.</em></p>
+        <p>The world is complicated enough. We believe crossing borders should <em>open possibilities, not create more obstacles.</em></p>
       </section>
 
       <section className="about-section about-how">
