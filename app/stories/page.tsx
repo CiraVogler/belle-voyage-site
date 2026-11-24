@@ -25,13 +25,38 @@ export default function StoriesPage() {
           <span className="stories-eyebrow">01 / WORDS THAT MATTER</span>
           <h2 id="voices-title">In their <em>own words.</em></h2>
         </div>
-        <div className="stories-empty">
-          <span className="stories-quote-mark" aria-hidden="true">“</span>
-          <p>Good stories are worth waiting for.</p>
-          <span>We're making room here for honest experiences from our guests, property owners, and partners. As their stories arrive, we'll share them with care.</span>
-          <div className="stories-empty-rule" aria-hidden="true" />
-          <span className="stories-empty-footnote">REAL PEOPLE. REAL PLACES. REAL EXPERIENCES.</span>
+        <p className="stories-voices-intro">A growing collection of experiences, told by the people who lived them. Browse the chapters below as we gather real stories.</p>
+        <div className="stories-gallery" aria-label="Upcoming testimonials and reviews">
+          <article className="stories-story-card">
+            <span className="stories-card-index">01 / GUEST EXPERIENCES</span>
+            <span className="stories-card-quote" aria-hidden="true">“</span>
+            <h3>Places worth remembering.</h3>
+            <p>We're saving this space for genuine reflections from people who have found a place through Belle Voyage Estates.</p>
+            <span className="stories-card-status">STORIES COMING SOON</span>
+          </article>
+          <article className="stories-story-card">
+            <span className="stories-card-index">02 / PROPERTY OWNERS</span>
+            <span className="stories-card-quote" aria-hidden="true">“</span>
+            <h3>From the other side of the door.</h3>
+            <p>Here, property owners will be able to share what working together has meant to them.</p>
+            <span className="stories-card-status">STORIES COMING SOON</span>
+          </article>
+          <article className="stories-story-card">
+            <span className="stories-card-index">03 / PARTNERS & CONNECTIONS</span>
+            <span className="stories-card-quote" aria-hidden="true">“</span>
+            <h3>Better, together.</h3>
+            <p>A home for the perspectives of partners and collaborators across places and borders.</p>
+            <span className="stories-card-status">STORIES COMING SOON</span>
+          </article>
+          <article className="stories-story-card">
+            <span className="stories-card-index">04 / YOUR STORY</span>
+            <span className="stories-card-quote" aria-hidden="true">✦</span>
+            <h3>Maybe yours is next.</h3>
+            <p>Have a real experience to share? We'd love to hear it, in your own words.</p>
+            <a className="stories-card-link" href="mailto:ciravogler@bellevoyageestates.com?subject=My%20Belle%20Voyage%20Experience">Tell us your story ↗</a>
+          </article>
         </div>
+        <p className="stories-gallery-note">More stories will be added as verified experiences are shared. We never publish made-up testimonials.</p>
       </section>
 
       <section className="stories-invite" aria-labelledby="stories-invite-title">
