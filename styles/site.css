@@ -1405,3 +1405,67 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
     letter-spacing:.06em;
   }
 }
+
+
+/* Editorial second chapter: manual scroll reveals the same champagne thread.
+   The opening-to-hero journey and its timing remain untouched. */
+.home-transition{
+  height:clamp(112px,18svh,200px);
+  background:linear-gradient(180deg,#171b19 0%,#242b27 55%,#292f2a 100%);
+}
+.home-transition-glow{
+  background:radial-gradient(ellipse at 15% 0%,rgba(217,185,133,.07),transparent 65%);
+}
+.home-transition-line{
+  left:28px;
+  top:0;
+  height:100%;
+  width:2px;
+  background:#d9b985;
+  box-shadow:none;
+  transform-origin:top center;
+}
+.home-transition-end{display:none;}
+.home-transition + .ct{
+  background:linear-gradient(180deg,#292f2a 0%,#262b27 55%,#222723 100%);
+  color:#f5f1e9;
+}
+.home-transition + .ct .ct-inner{
+  position:relative;
+  padding-left:max(var(--pad),64px);
+}
+.home-transition + .ct .ct-inner::before{
+  content:"";
+  position:absolute;
+  left:28px;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:#d9b985;
+  pointer-events:none;
+}
+.home-transition + .ct .ct-f input,
+.home-transition + .ct .ct-f textarea,
+.home-transition + .ct .ct-f select{
+  color:#f5f1e9;
+}
+.home-transition + .ct .ct-path,
+.home-transition + .ct .ct-path + .ct-path{
+  border-color:rgba(217,185,133,.27);
+}
+.home-transition + .ct .ct-v{color:rgba(245,241,233,.7);}
+.home-transition + .ct .ft{
+  background:#222723;
+  color:#f5f1e9;
+  border-top-color:rgba(217,185,133,.3);
+}
+.home-transition + .ct .ft-wm{color:#f5f1e9;}
+@media(max-width:600px){
+  .home-transition{height:clamp(88px,14svh,140px);}
+  .home-transition-line{left:16px;}
+  .home-transition + .ct .ct-inner{padding-left:48px;}
+  .home-transition + .ct .ct-inner::before{left:16px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .home-transition-line{transform:scaleY(1);}
+}
