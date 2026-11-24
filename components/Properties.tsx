@@ -116,9 +116,9 @@ export function Properties({ initial }: { initial: Market | "all" }) {
   /* The price counts as a filter when it actually narrows anything, not when
      it has merely been touched. Dragging a handle out and back left the badge
      claiming one filter was on while the range excluded nothing. */
-  const active = (kind !== "any" ? 1 : 0) + (beds ? 1 : 0) + (baths ? 1 : 0) +
+  const active = (market !== "all" ? 1 : 0) + (kind !== "any" ? 1 : 0) + (beds ? 1 : 0) + (baths ? 1 : 0) +
     (min > floor || max < ceil ? 1 : 0);
-  const clear = () => { setKind("any"); setBeds(0); setBaths(0); setLo(null); setHi(null); };
+  const clear = () => { setMarket("all"); setKind("any"); setBeds(0); setBaths(0); setLo(null); setHi(null); };
 
   useEffect(() => {
     const el = dlg.current; if (!el) return;
@@ -230,19 +230,11 @@ export function Properties({ initial }: { initial: Market | "all" }) {
               <li key={k}><span className="pr-stop" data-kind={k} aria-hidden="true" />{label}</li>
             ))}
         </ul>
-        <div className="pr-filter" role="group" aria-label="Filter by market">
-          <button type="button" data-on={market === "all"} onClick={() => setMarket("all")}>
-            All<span>{others.length}</span>
-          </button>
-          {MARKETS.map((mk) => (
-            <button key={mk.code} type="button" data-on={market === mk.code}
-              style={{ ["--c" as string]: marketColour(mk.code) }} onClick={() => setMarket(mk.code)}>
-              {mk.name}<span>{others.filter((p) => p.market === mk.code).length}</span>
-            </button>
-          ))}
+        <div className="pr-filter">
           <button type="button" className="pr-more" onClick={() => setPanel(true)}
-            aria-haspopup="dialog">
-            Filters{active > 0 && <span className="pr-badge">{active}</span>}
+            aria-haspopup="dialog" aria-label={`Open property filters${active ? `, ${active} active` : ""}`}>
+            <span aria-hidden="true">☷</span> Filter properties
+            {active > 0 && <span className="pr-badge">{active}</span>}
           </button>
         </div>
         <div className="pr-view-switch" role="group" aria-label="Property display">
@@ -264,6 +256,17 @@ export function Properties({ initial }: { initial: Market | "all" }) {
           </header>
 
           <section className="fl-sec">
+            <h3>Location</h3>
+            <div className="fl-seg" role="group" aria-label="Region">
+              <button type="button" data-on={market === "all"} onClick={() => setMarket("all")}>All regions</button>
+              {MARKETS.map((mk) => (
+                <button key={mk.code} type="button" data-on={market === mk.code}
+                  onClick={() => setMarket(mk.code)}>{mk.name}</button>
+              ))}
+            </div>
+          </section>
+
+          <section className="fl-sec">
             <h3>Type of letting</h3>
             <div className="fl-seg" role="group" aria-label="Type of letting">
               {LETTING.map((l) => (
@@ -276,8 +279,7 @@ export function Properties({ initial }: { initial: Market | "all" }) {
           <section className="fl-sec">
             <h3>Price range</h3>
             <p className="fl-hint">
-              Monthly, in each property&rsquo;s own currency. A nightly rate is
-              counted as thirty nights.
+              Choose your preferred price range. Rates are shown in each property&rsquo;s own currency; nightly rates are multiplied by 30 for comparison.
             </p>
             <div className="fl-hist" aria-hidden="true">
               {bars.map((b, i) => (
