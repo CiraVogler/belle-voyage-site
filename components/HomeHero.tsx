@@ -28,8 +28,8 @@ export function HomeHero() {
         <Link className="home-hero-cta" href="/properties">Start exploring <span aria-hidden="true">↗</span></Link>
       </div>
       <div className="home-hero-bottom">
-        <nav className="home-hero-rail" aria-label="Discover, explore, connect">
-          <Link href="/properties" className="home-hero-rail-stop"><i aria-hidden="true"/>Discover</Link>
+        <nav className="home-hero-rail" aria-label="Stories, explore, connect">
+          <Link href="/stories" className="home-hero-rail-stop"><i aria-hidden="true"/>Stories</Link>
           <Link href="/properties?market=us" className="home-hero-rail-stop"><i aria-hidden="true"/>Explore</Link>
           <Link href="/owners" className="home-hero-rail-stop"><i aria-hidden="true"/>Connect</Link>
         </nav>
