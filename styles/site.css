@@ -1765,3 +1765,6 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   .about-story{grid-template-columns:1fr;gap:32px;}
   .about-founder-placeholder{width:min(100%,360px);aspect-ratio:4/5;}
 }
+
+/* Lower the founder portrait to begin beside the third story paragraph. */
+@media(min-width:701px){.about-story-aside .about-founder-placeholder{margin-top:clamp(240px,30vw,400px);}}
