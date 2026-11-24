@@ -1469,3 +1469,26 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 @media(prefers-reduced-motion:reduce){
   .home-transition-line{transform:scaleY(1);}
 }
+
+/* Let the existing hero photograph dissolve into the next chapter's colour.
+   Purely visual: preserve the approved opening, gold thread and scroll logic. */
+.home-journey .home-hero::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:clamp(220px,40svh,440px);
+  background:linear-gradient(to bottom,
+    rgba(23,27,25,0) 0%,
+    rgba(23,27,25,.16) 25%,
+    rgba(23,27,25,.55) 58%,
+    rgba(23,27,25,.9) 85%,
+    #171b19 100%);
+  pointer-events:none;
+  z-index:1;
+}
+.home-journey .home-hero-bottom{
+  position:relative;
+  z-index:2;
+}
