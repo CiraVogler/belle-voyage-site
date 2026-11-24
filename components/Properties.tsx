@@ -352,7 +352,7 @@ export function Properties({ initial }: { initial: Market | "all" }) {
           )}
           {shown.map((p: Property) => (
             <li key={p.id} id={`row-${p.id}`} data-on={sel === p.id}
-              style={{ ["--c" as string]: MARKETS.find((x) => x.code === p.market)!.colour }}
+              style={{ ["--c" as string]: marketColour(p.market) }}
               onMouseEnter={() => { from.current = "list"; setSel(p.id); }}
               onFocus={() => { from.current = "list"; setSel(p.id); }}>
               {/* Opens in place rather than navigating. A detail page needs
