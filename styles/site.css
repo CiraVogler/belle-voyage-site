@@ -1492,3 +1492,49 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   position:relative;
   z-index:2;
 }
+
+/* Right-side continuation of the Discover / Explore / Connect rail.
+   Position is measured from the rail endpoint at runtime on all screen sizes. */
+.home-journey .home-hero-rail::after{
+  display:block;
+  content:"";
+  position:absolute;
+  left:auto;
+  right:0;
+  top:8px;
+  bottom:auto;
+  width:2px;
+  height:var(--contact-exit-length, 0px);
+  border:0;
+  border-radius:0;
+  background:#d9b985;
+  pointer-events:none;
+  filter:none;
+  z-index:1;
+}
+.home-transition .home-transition-line{
+  left:auto;
+  right:var(--contact-thread-right, var(--pad));
+}
+.home-transition + .ct .ct-inner::before{
+  left:auto;
+  right:var(--contact-thread-right, var(--pad));
+}
+.home-transition + .ct .ct-inner{
+  padding-left:var(--pad);
+  padding-right:max(var(--pad),64px);
+}
+@media(max-width:600px){
+  .home-transition .home-transition-line{
+    left:auto;
+    right:var(--contact-thread-right, 20px);
+  }
+  .home-transition + .ct .ct-inner::before{
+    left:auto;
+    right:var(--contact-thread-right, 20px);
+  }
+  .home-transition + .ct .ct-inner{
+    padding-left:20px;
+    padding-right:48px;
+  }
+}
