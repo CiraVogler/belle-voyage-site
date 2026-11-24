@@ -1566,10 +1566,10 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 .stories-hero h1 em{color:#d9b985;}
 .stories-intro{max-width:510px;font-size:clamp(17px,1.7vw,22px);line-height:1.65;color:rgba(244,239,230,.83);}
 .stories-down{display:inline-flex;gap:24px;align-items:center;margin-top:48px;color:#d9b985;font-size:11px;letter-spacing:.16em;text-decoration:none;}
-.stories-hero-decoration{position:absolute;right:8vw;bottom:100px;display:flex;flex-direction:column;gap:12px;text-align:right;color:rgba(217,185,133,.32);pointer-events:none;}
+.stories-hero-decoration{position:absolute;right:8vw;bottom:92px;display:flex;flex-direction:column;gap:12px;text-align:right;color:rgba(217,185,133,.32);pointer-events:none;}
 .stories-hero-decoration span:first-child{font-family:Georgia,serif;font-size:clamp(100px,18vw,260px);line-height:1;}
 .stories-hero-decoration span:last-child{font-size:10px;letter-spacing:.2em;}
-.stories-voices{padding:clamp(80px,10vw,150px) clamp(24px,8vw,110px);}
+.stories-voices{padding:clamp(80px,10vw,110px) clamp(24px,8vw,110px);}
 .stories-section-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap;border-bottom:1px solid rgba(41,47,42,.2);padding-bottom:32px;}
 .stories-section-heading .stories-eyebrow{color:#6b705e;}
 .stories-section-heading h2{font-size:clamp(42px,6vw,84px);font-weight:400;letter-spacing:-.055em;line-height:1.1;}
@@ -1581,7 +1581,7 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 .stories-empty-rule{width:80px;height:1px;background:#b99b6a;margin-top:16px;}
 .stories-empty-footnote{font-size:10px;letter-spacing:.18em;color:#777e6b;}
 .stories-invite{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(160px,1fr);background:#292f2a;color:#f4efe6;}
-.stories-invite-content{padding:clamp(72px,9vw,140px) clamp(24px,8vw,110px);}
+.stories-invite-content{padding:clamp(72px,9vw,110px) clamp(24px,8vw,110px);}
 .stories-invite .stories-eyebrow{color:#d9b985;}
 .stories-invite h2{font-size:clamp(48px,7vw,100px);font-weight:400;letter-spacing:-.06em;line-height:1.05;margin:28px 0;}
 .stories-invite h2 em{color:#d9b985;}
