@@ -1771,14 +1771,14 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 
 
 /* About: five personal journeys connected by the signature champagne thread. */
-.about-journey-list{position:relative;list-style:none;margin:42px 0 32px;padding:0 0 0 36px;}
-.about-journey-list::before{content:"";position:absolute;left:7px;top:0;bottom:0;width:1.5px;background:#b99b6a;transform-origin:top;}
-.about-journey-list>li{position:relative;padding:0 0 30px;}
+.about-journey-list{position:relative;list-style:none;margin:40px 0 32px;padding:0 0 0 40px;}
+.about-journey-list::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:1.5px;background:#b99b6a;transform-origin:top;}
+.about-journey-list>li{position:relative;padding:0 0 32px;}
 .about-journey-list>li:last-child{padding-bottom:12px;}
-.about-journey-list>li::before{content:"";position:absolute;left:-33px;top:10px;width:10px;height:10px;box-sizing:border-box;border:1.5px solid #b99b6a;border-radius:50%;background:#f4f2eb;}
+.about-journey-list>li::before{content:"";position:absolute;left:-32px;transform:translateX(-4.25px);top:12px;width:10px;height:10px;box-sizing:border-box;border:1.5px solid #b99b6a;border-radius:50%;background:#f4f2eb;}
 .about-journey-list h3{font-family:Georgia,serif;font-size:clamp(23px,2.5vw,32px);font-weight:400;line-height:1.25;color:#263128;margin:0 0 8px;}
 .about-journey-list p{font-size:clamp(15px,1.4vw,17px);line-height:1.7;color:#697665;margin:0;}
-.about-section-body>.about-journey-signature{border-top:1px solid #b99b6a;padding-top:24px;font-family:Georgia,serif;font-size:clamp(22px,2.5vw,30px);font-style:italic;line-height:1.4;color:#78856d;margin-bottom:36px;}
+.about-section-body>.about-journey-signature{border-top:1px solid #b99b6a;padding-top:24px;font-family:Georgia,serif;font-size:clamp(22px,2.5vw,30px);font-style:italic;line-height:1.4;color:#78856d;margin-bottom:40px;}
 @keyframes bve-about-thread-draw{from{transform:scaleY(0);}to{transform:scaleY(1);}}
 @keyframes bve-about-journey-reveal{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 @supports (animation-timeline: view()){
@@ -1787,4 +1787,4 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
     .about-journey-list>li{animation:bve-about-journey-reveal linear both;animation-timeline:view();animation-range:entry 0% entry 85%;}
   }
 }
-@media(max-width:600px){.about-journey-list{padding-left:30px;margin-top:32px;}.about-journey-list>li::before{left:-27px;}.about-journey-list>li{padding-bottom:26px;}}
+@media(max-width:600px){.about-journey-list{padding-left:32px;margin-top:32px;}.about-journey-list>li::before{left:-24px;}.about-journey-list>li{padding-bottom:28px;}}
