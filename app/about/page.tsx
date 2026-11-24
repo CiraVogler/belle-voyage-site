@@ -62,11 +62,15 @@ export default function AboutPage() {
       </section>
 
       <section className="about-section about-vision">
-        <div className="about-section-label">03 / LOOKING AHEAD</div>
+        <div className="about-section-label">03 / BEYOND BORDERS</div>
         <div className="about-section-body">
-          <h2>Rooted in Canada.<br /><em>Open to the world.</em></h2>
-          <p>Our vision is international, with an interest in places across North America and Europe. As Belle Voyage Estates grows, we want to build thoughtful relationships with property owners and real estate professionals, while keeping discovery simple and welcoming for visitors.</p>
-          <p>Whether you're searching for a new chapter or hoping to introduce your property to a wider audience, we'd love to connect.</p>
+          <h2>Rooted in purpose.<br /><em>Bound for the world.</em></h2>
+          <p>Our ambition extends beyond properties and destinations. It is about creating connections, opening opportunities and making the unfamiliar feel within reach.</p>
+          <p>Every new destination, every partnership and every connection brings us closer to that vision.</p>
+          <div className="about-vision-signature">
+            <h3>Belle Voyage Estates</h3>
+            <p>A WORLD WITHIN REACH.</p>
+          </div>
           <div className="about-actions">
             <Link href="/properties">Explore properties <span aria-hidden="true">↗</span></Link>
             <Link href="/owners">Work with us <span aria-hidden="true">↗</span></Link>
