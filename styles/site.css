@@ -1538,3 +1538,18 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
     padding-right:48px;
   }
 }
+
+/* No empty bridge: keep the connector continuously painted, including before
+   any scroll animation begins. The rail and contact use the same right offset. */
+.home-transition .home-transition-line{
+  transform:none !important;
+  height:100%;
+  top:0;
+  bottom:0;
+  opacity:1;
+  z-index:3;
+}
+.home-transition + .ct .ct-inner::before{
+  opacity:1;
+  z-index:1;
+}
