@@ -1624,3 +1624,36 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
   .stories-gallery{grid-auto-columns:minmax(260px,85%);gap:12px;}
   .stories-story-card{min-height:400px;padding:32px 24px;}
 }
+
+/* Properties-only brand palette: align the directory, map and filters with
+   the approved olive / ivory / champagne chapters. Other pages untouched. */
+.pr,.fl{
+  --paper:#f4efe6;
+  --ink:#292f2a;
+  --muted:#5e675d;
+  --rule:#c9c6b8;
+  --rule-strong:#828b7d;
+  --panel:#e5e7dc;
+  --water:#d5ddd4;
+  --us:#78856d;
+  --ca:#a98b60;
+  --eu:#586b64;
+}
+.pr-head{background:#292f2a;color:#f4efe6;border-bottom:1px solid rgba(217,185,133,.4);}
+.pr-head h1{color:#f4efe6;}
+.pr .pr-home{color:#f4efe6;}
+.pr .pr-note{background:rgba(244,239,230,.08);color:#e9e5d9;border-left-color:#d9b985;}
+.pr .pr-key{color:#d9d2c3;}
+.pr .pr-key .pr-stop{--c:#d9b985;}
+.pr .pr-filter button{color:#f4efe6;}
+.pr .pr-filter button[data-on="true"]{background:#d9b985;border-color:#d9b985;color:#292f2a;}
+.pr .pr-filter button:not([data-on="true"]):hover{background:rgba(217,185,133,.12);}
+.pr .pr-more{--c:#d9b985;}
+.pr .pr-badge{background:#d9b985;color:#292f2a;}
+.pr .pr-view-switch button{color:inherit;}
+.pr .pr-list li[data-on="true"] > button{background:#e5e7dc;}
+.pr .pr-ask:hover{background:#292f2a;color:#f4efe6;}
+.fl .fl-show,.fl .fl-seg button[data-on="true"]{background:#292f2a;color:#f4efe6;border-color:#292f2a;}
+.fl .fl-hist i[data-on="true"]{background:#a98b60;}
+.fl .fl-range input::-webkit-slider-thumb{border-color:#a98b60;}
+.fl .fl-range input::-moz-range-thumb{border-color:#a98b60;}
