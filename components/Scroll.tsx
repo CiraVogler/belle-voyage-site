@@ -18,7 +18,16 @@ export function Scroll({ children }: { children: React.ReactNode }) {
     setLenis(lenis);
     /* Held until the ride finishes. overflow:hidden never did this — Lenis is
        not the document scroller. */
-    if (document.querySelector(".home-journey")) lenis.stop();
+    // HomeJourney owns the temporary intro lock and releases it when the
+    // automatic arrival finishes. Do not stop Lenis again here: parent effects
+    // can run after the child has already released the lock, leaving wheel and
+    // touch scrolling disabled even though the scrollbar still works.
+    if (document.querySelector(".home-journey:not(.home-journey-arrived)")) {
+      lenis.stop();
+    }
+    // If the arrival has already completed before this effect runs, the
+    // scroller must remain enabled.
+    if (document.querySelector(".home-journey-arrived")) lenis.start();
     lenis.on("scroll", ScrollTrigger.update);
 
     const raf = (time: number) => lenis.raf(time * 1000);
