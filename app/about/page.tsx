@@ -13,8 +13,8 @@ export default function AboutPage() {
       <section className="about-hero" aria-labelledby="about-title">
         <div className="about-hero-inner">
           <p className="about-kicker">BELLE VOYAGE ESTATES / OUR STORY</p>
-          <h1 id="about-title">A world of places.<br /><em>A more personal way to explore.</em></h1>
-          <p>We believe finding a place should feel like the beginning of something, not just another search.</p>
+          <h1 id="about-title">Home isn&apos;t always<br /><em>where you started.</em></h1>
+          <p>Sometimes it&apos;s somewhere you&apos;ve been dreaming about for years. Sometimes it&apos;s somewhere you haven&apos;t even discovered yet.</p>
           <a href="#our-story" className="about-scroll">GET TO KNOW US <span aria-hidden="true">↓</span></a>
         </div>
         <span className="about-hero-mark" aria-hidden="true">BVE</span>
