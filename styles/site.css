@@ -1657,3 +1657,53 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 .fl .fl-hist i[data-on="true"]{background:#a98b60;}
 .fl .fl-range input::-webkit-slider-thumb{border-color:#a98b60;}
 .fl .fl-range input::-moz-range-thumb{border-color:#a98b60;}
+
+/* Properties discovery: photo-ready gallery first, interactive map on demand. */
+.pr{height:auto;min-height:100dvh;display:block;}
+.pr-head{padding:clamp(48px,7dvh,80px) var(--pad) 32px;gap:16px;}
+.pr-eyebrow{color:#d9b985;font-size:11px;letter-spacing:.18em;font-weight:700;}
+.pr-head h1{font-size:clamp(36px,5vw,72px);max-width:16ch;line-height:1.08;font-weight:500;letter-spacing:-.04em;}
+.pr-head h1 em{font-family:Georgia,serif;font-weight:400;}
+.pr-tagline{color:#dedbd0;font-size:clamp(15px,1.5vw,19px);line-height:1.5;}
+.pr-note{font-size:12px;max-width:75ch;}
+.pr-filter{padding-bottom:0;}
+.pr-view-switch{display:flex;gap:4px;justify-self:start;padding:4px;border:1px solid rgba(217,185,133,.4);border-radius:999px;background:rgba(244,239,230,.08);margin-top:8px;}
+.pr .pr-view-switch button{min-height:44px;padding:8px 24px;border:0;border-radius:999px;background:transparent;color:#f4efe6;font:inherit;font-size:14px;font-weight:600;cursor:pointer;}
+.pr .pr-view-switch button[aria-pressed="true"]{background:#d9b985;color:#292f2a;}
+.pr .pr-view-switch button:focus-visible{outline:2px solid #f4efe6;outline-offset:2px;}
+.pr-body{display:block;border-top:0;min-height:0;}
+.pr-gallery-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:32px var(--pad) 20px;color:#292f2a;}
+.pr-gallery-heading span:first-child{font-family:Georgia,serif;font-size:clamp(22px,2.5vw,32px);}
+.pr-gallery-heading span:last-child{font-size:13px;color:#5e675d;}
+.pr-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 20px;padding:0 var(--pad) 72px;overflow:visible;}
+.pr-list li{min-width:0;border:1px solid #c9c6b8;background:#f4efe6;align-self:start;}
+.pr-list li > button{display:grid;grid-template-columns:1fr auto;grid-template-areas:"photo photo" "name arrow" "city city" "spec spec" "price price";gap:8px;padding:0 0 20px;text-align:left;align-items:start;}
+.pr-list li > button .pr-card-photo{grid-area:photo;display:flex;align-items:flex-end;justify-content:flex-start;width:100%;aspect-ratio:4/3;max-height:none;margin:0 0 12px;padding:20px;background:linear-gradient(145deg,#e4e5db,#c9cfc1 62%,#e8e2d6);color:#58665a;border:0;font-size:10px;letter-spacing:.14em;text-align:left;}
+.pr-list li > button .pr-card-photo span{border-top:1px solid #9ba897;padding-top:12px;}
+.pr-list li > button .pr-stop{display:none;}
+.pr-list li > button .pr-name{padding-left:20px;font-family:Georgia,serif;font-size:clamp(20px,2vw,28px);font-weight:400;line-height:1.2;}
+.pr-list li > button .pr-city,.pr-list li > button .pr-spec,.pr-list li > button .pr-price{padding-left:20px;padding-right:20px;text-align:left;}
+.pr-list li > button .pr-price{font-size:16px;color:#292f2a;margin-top:8px;}
+.pr-list li > button svg{margin-right:20px;margin-top:4px;}
+.pr-list li[data-on="true"] > button{background:#e5e7dc;}
+.pr-detail{padding:20px;gap:16px;}
+.pr-foot{margin:0 -20px -20px;padding:12px 20px;}
+.pr-none{grid-column:1/-1;}
+.pr[data-mobile-view="list"] .pr-map{position:absolute!important;width:1px!important;height:1px!important;min-height:0!important;overflow:hidden!important;visibility:hidden!important;pointer-events:none!important;border:0!important;}
+.pr[data-mobile-view="map"] .pr-list,.pr[data-mobile-view="map"] .pr-gallery-heading{display:none!important;}
+.pr[data-mobile-view="map"] .pr-map{display:block;position:relative;width:100%;height:clamp(420px,72dvh,900px);min-height:420px;border:0;}
+@media(max-width:900px){
+  .pr-list{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .pr-body{display:block;}
+  .pr-list li > button{grid-template-columns:1fr auto;grid-template-areas:"photo photo" "name arrow" "city city" "spec spec" "price price";}
+  .pr .pr-view-switch{display:flex;background:rgba(244,239,230,.08);}
+  .pr .pr-view-switch button{flex:0 1 auto;}
+}
+@media(max-width:600px){
+  .pr-head{padding-top:48px;}
+  .pr-list{grid-template-columns:minmax(0,1fr);gap:20px;padding-bottom:48px;}
+  .pr-gallery-heading{align-items:flex-start;flex-direction:column;gap:8px;}
+  .pr-list li > button .pr-card-photo{max-height:none;}
+  .pr .pr-view-switch{width:100%;}
+  .pr .pr-view-switch button{flex:1;}
+}
