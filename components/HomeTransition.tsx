@@ -12,6 +12,21 @@ export function HomeTransition() {
     const contact = document.querySelector<HTMLElement>(".ct");
     const section = bridge.current;
     if (!hero || !contact || !section) return;
+    const rail = hero.querySelector<HTMLElement>(".home-hero-rail");
+    if (!rail) return;
+    const syncJoin = () => {
+      const railBox = rail.getBoundingClientRect();
+      const heroBox = hero.getBoundingClientRect();
+      const right = Math.max(0, window.innerWidth - railBox.right);
+      hero.style.setProperty("--contact-exit-length", `${Math.max(0, heroBox.bottom - railBox.top - 8)}px`);
+      section.style.setProperty("--contact-thread-right", `${right}px`);
+      contact.style.setProperty("--contact-thread-right", `${right}px`);
+    };
+    const observer = new ResizeObserver(syncJoin);
+    observer.observe(hero);
+    observer.observe(rail);
+    syncJoin();
+    window.addEventListener("resize", syncJoin);
     const ctx = gsap.context(() => {
       gsap.to(hero, {
         backgroundPosition: "center 62%",
@@ -31,7 +46,11 @@ export function HomeTransition() {
         scrollTrigger: { trigger: contact, start: "top 85%", toggleActions: "play none none reverse" },
       });
     });
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      observer.disconnect();
+      window.removeEventListener("resize", syncJoin);
+    };
   }, []);
   return (
     <section className="home-transition" ref={bridge} aria-hidden="true">
