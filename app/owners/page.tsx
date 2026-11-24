@@ -29,8 +29,12 @@ export default function OwnersPage() {
  .owners-hero .owners-short-rule{width:48px;height:1px;background:#d9b985;}
  .owners-hero .about-scroll{color:#d9b985;border:0;margin-top:16px;padding:0;font-size:10px;letter-spacing:.18em;}
  .owners-hero::after{content:"";position:absolute;left:50%;bottom:0;height:64px;width:1px;background:#b99b6a;}
- #owners-platform{position:relative;}
- #owners-platform::before{content:"";position:absolute;top:0;left:50%;height:32px;width:1px;background:#b99b6a;}
+ .owners-transition{position:relative;height:clamp(110px,18vw,220px);background:linear-gradient(to bottom,#292f2a,#d6cfc2);}
+ .owners-transition::before{content:"";position:absolute;top:0;left:50%;width:1px;height:78%;background:linear-gradient(to bottom,#b99b6a,rgba(185,155,106,0));}
+ .owners-page #owners-platform{position:relative;background:#d6cfc2;color:#292f2a;}
+ .owners-page #owners-platform .about-section-label{color:#625c50;}
+ .owners-page #owners-platform .about-section-label::after{content:"";display:block;width:72px;height:1px;background:#a58a60;margin-top:12px;}
+ .owners-page #owners-platform .about-section-body p{color:#393a34;}
  @media(prefers-reduced-motion:no-preference){.owners-frame path{animation:owners-frame-draw 1.8s ease-out both;}.owners-invitation> :not(svg){animation:owners-invitation-fade 1.3s ease both;}}
  @keyframes owners-frame-draw{from{stroke-dashoffset:1;}to{stroke-dashoffset:0;}}
  @keyframes owners-invitation-fade{from{opacity:0;}to{opacity:1;}}
@@ -65,6 +69,7 @@ export default function OwnersPage() {
  @media(max-width:600px){.owners-dialog{padding:20px;}.owners-dialog .owners-grid{grid-template-columns:1fr;}}
  `}</style>
  <section className="owners-hero" aria-labelledby="owners-title"><div className="owners-invitation"><svg className="owners-frame" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M-9.52 0 H0 V100 H100 V0 H0"/></svg><p className="about-kicker">AN INVITATION TO PARTNER</p><h1 id="owners-title">Somewhere in the world,<br/><em>someone is looking.</em></h1><span className="owners-short-rule" aria-hidden="true"/><p>Let us help them discover what you have to offer.</p><a className="about-scroll" href="#owners-platform">DISCOVER HOW IT WORKS</a></div></section>
+ <div className="owners-transition" aria-hidden="true"/>
  <section className="about-section" id="owners-platform"><div className="about-section-label">01 / THE PLATFORM</div><div className="about-section-body"><h2>What is it?</h2><p>Belle Voyage Estates offers a dedicated platform for promoting residential properties and accommodations to individuals exploring opportunities locally and internationally.</p><p>Whether your property is available for sale, rent or short-term stays, BVE provides an additional avenue for discovery without replacing your existing marketing channels.</p></div></section>
  <section className="about-section"><div className="about-section-label">02 / THE PROCESS</div><div className="about-section-body"><h2>How does it work?</h2><p>Your property is presented on Belle Voyage Estates through photographs, descriptions, relevant property information and a direct connection to your business or listing.</p><ol className="owners-flow"><li>You provide the property.</li><li>BVE promotes the property.</li><li>Interested visitors connect with you.</li></ol><p>You retain control over your pricing, availability, client relationships and transactions. Our role is promotional, allowing you to continue conducting business on your own terms.</p></div></section>
  <section className="about-section owners-payment"><div className="about-section-label">03 / WORKING WITH US</div><div className="about-section-body"><h2>An investment in<br/><em>greater visibility.</em></h2><p>Property promotion through Belle Voyage Estates is a paid service, with pricing tailored to the individual needs of each property owner or business.</p><p>All pricing and partnership arrangements are discussed directly with our team prior to any commitment.</p><p className="owners-note">Every partnership begins with a conversation, not an obligation.</p></div></section>
