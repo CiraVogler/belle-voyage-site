@@ -1803,3 +1803,17 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
     .about-vision-signature::before{animation:bve-vision-line linear both;animation-timeline:view();animation-range:entry 0% entry 100%;}
   }
 }
+
+
+/* Contact dialog only: BVE sage and champagne palette. */
+.cm-frame{background:#292f2a;color:#f4efe6;border-color:#d9b985;}
+.cm-panel ::selection{background:#d9b985;color:#292f2a;}
+.cm-x{color:#d9b985;}
+.cm-x:hover{color:#f4efe6;}
+.cm-panel .ct-f > label{color:#d9b985;}
+.cm-panel .ct-f input,.cm-panel .ct-f textarea{color:#f4efe6;border-bottom-color:#b99b6a;}
+.cm-panel .ct-f input:focus,.cm-panel .ct-f textarea:focus{border-bottom-color:#d9b985;}
+.cm-panel .ct-f input:focus-visible,.cm-panel .ct-f textarea:focus-visible{outline-color:#d9b985;}
+.cm-panel .ct-f [aria-invalid="true"],.cm-panel .ct-f [aria-invalid="true"]:focus{border-bottom-color:#ffb3ae;}
+.cm-panel .ct-send{background:#d9b985;color:#292f2a;}
+.cm-panel .ct-again{color:#d9b985;}
