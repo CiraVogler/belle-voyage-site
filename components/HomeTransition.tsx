@@ -24,7 +24,7 @@ export function HomeTransition() {
       });
       gsap.fromTo(".home-transition-line", { scaleY: 0 }, {
         scaleY: 1, ease: "none",
-        scrollTrigger: { trigger: section, start: "top 90%", end: "bottom 40%", scrub: true },
+        scrollTrigger: { trigger: section, start: "top bottom", end: "bottom 30%", scrub: true },
       });
       gsap.fromTo(".ct-inner", { y: 48, opacity: 0.65 }, {
         y: 0, opacity: 1, ease: "power2.out", duration: 1,
@@ -37,7 +37,7 @@ export function HomeTransition() {
     <section className="home-transition" ref={bridge} aria-hidden="true">
       <div className="home-transition-glow" />
       <div className="home-transition-line" />
-      <div className="home-transition-end" />
+
     </section>
   );
 }
