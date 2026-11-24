@@ -1727,7 +1727,7 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 .about-section-body>p{font-size:clamp(16px,1.5vw,20px);line-height:1.85;color:#515b50;margin-bottom:24px;}
 .about-statement{padding:110px clamp(24px,7vw,92px);background:#e5e7dc;}
 .about-statement .about-kicker{color:#697665;}
-.about-statement p{font-family:Georgia,serif;font-size:clamp(36px,5.6vw,80px);line-height:1.18;letter-spacing:-.035em;max-width:1050px;margin-top:32px;}
+.about-statement p{font-family:Georgia,serif;font-size:clamp(28px,4.2vw,56px);line-height:1.18;letter-spacing:-.035em;max-width:1050px;margin-top:32px;}
 .about-statement em{color:#78856d;}
 .about-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:48px 0;}
 .about-steps>div{border-top:1px solid #b99b6a;padding-top:20px;}
