@@ -78,6 +78,7 @@ export function Masthead({ secondary = false }: { secondary?: boolean }) {
             <a href="/properties" onClick={() => setView(null)}>Properties</a>
             <a href="/stories" onClick={() => setView(null)}>Testimonials</a>
             <a href="/about" onClick={() => setView(null)}>About Us</a>
+            <a href="/account" onClick={() => setView(null)}>My Account <span aria-hidden="true">↗</span></a>
             <a href="#contact" onClick={openContact}>Contact</a>
           </nav>
           <div className="mh-menu-partners">
