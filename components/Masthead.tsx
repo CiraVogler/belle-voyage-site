@@ -22,6 +22,8 @@ const arrived = () => {
 export function Masthead({ secondary = false }: { secondary?: boolean }) {
   const [view, setLocal] = useState<View>(getView());
   const open = view === "menu";
+  const [account,setAccount]=useState<{email:string;admin:boolean}|null>(null);
+  useEffect(()=>{if(open)fetch("/api/account",{cache:"no-store"}).then(r=>r.json()).then(d=>setAccount(d.user||null)).catch(()=>setAccount(null));},[open]);
 
   useEffect(() => onView(setLocal), []);
 
@@ -78,7 +80,9 @@ export function Masthead({ secondary = false }: { secondary?: boolean }) {
             <a href="/properties" onClick={() => setView(null)}>Properties</a>
             <a href="/stories" onClick={() => setView(null)}>Testimonials</a>
             <a href="/about" onClick={() => setView(null)}>About Us</a>
-            <a href="/account" onClick={() => setView(null)}>My Account <span aria-hidden="true">↗</span></a>
+            <a href="/account" onClick={() => setView(null)}>{account?"My Account":"My Account / Sign in"} <span aria-hidden="true">↗</span></a>
+            {account?.admin&&<a href="/admin" onClick={()=>setView(null)}>Admin ↗</a>}
+            {account&&<a href="/account" onClick={async e=>{e.preventDefault();const r=await fetch("/api/account",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"logout"})});if(r.ok){setAccount(null);setView(null);location.href="/account";}}}>Sign out ↗</a>}
             <a href="#contact" onClick={openContact}>Contact</a>
           </nav>
           <div className="mh-menu-partners">
