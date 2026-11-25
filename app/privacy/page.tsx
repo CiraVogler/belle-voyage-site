@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <Doc title="Privacy policy" updated="21 August 2026">
+    <Doc title="Privacy policy" updated="24 November 2026">
       <p>
         This policy describes what this website does with information about you.
         It is deliberately specific: it describes what the site actually does,
@@ -18,14 +18,12 @@ export default function Page() {
 
       <h2>What we collect</h2>
       <p>
-        Only what you type into the contact form: your name, your email address,
-        a subject and a message. There are no accounts, no newsletter, no
-        advertising and no analytics. We do not track you across other sites.
+        We collect contact and property listing inquiry details you submit. If you register, we collect your email address, securely hashed password, verification status and account metadata to provide and protect your account. We do not track you across other sites.
       </p>
 
       <h2>What your browser stores</h2>
       <p>
-        This site sets no cookies. It stores one thing in your browser: a flag
+        We use an essential session cookie to keep you signed in. We also store a flag
         recording that you have seen the opening animation, so it plays once
         rather than every time you open a page. It does not identify you, it
         never leaves your device, and it is discarded when you close the tab.
@@ -61,6 +59,7 @@ export default function Page() {
           Hosts the site. Like any web host it records requests, including IP
           addresses, for a short period.
         </dd>
+        <dt>Supabase</dt><dd>Provides authentication, account storage and verification email processing. Account records are retained until deletion is requested, subject to applicable legal obligations.</dd>
         <dt>Resend</dt>
         <dd>Delivers the enquiry email. It sees what you wrote, in order to send it.</dd>
         <dt>OpenFreeMap and OpenStreetMap</dt>
