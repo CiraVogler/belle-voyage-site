@@ -1817,3 +1817,11 @@ body:has(.home-hero) .mh{--mh-panel:#181818; --mh-ink:#f5f1e9;}
 .cm-panel .ct-f [aria-invalid="true"],.cm-panel .ct-f [aria-invalid="true"]:focus{border-bottom-color:#ffb3ae;}
 .cm-panel .ct-send{background:#d9b985;color:#292f2a;}
 .cm-panel .ct-again{color:#d9b985;}
+
+/* Legal documents: shared BVE palette and signature gold rules. */
+.doc{--paper:#d6cfc2;--ink:#292f2a;--muted:#625c50;--rule:#a58a60;--ca:#a58a60;background:var(--paper);color:var(--ink);}
+.doc h1{font-family:Georgia,serif;font-weight:400;}
+.doc-body{border-top:1px solid #a58a60;padding-top:24px;}
+.doc-body h2{font-family:Georgia,serif;font-weight:400;color:#292f2a;}
+.doc-body a,.doc-go a{color:#292f2a;text-decoration-color:#a58a60;}
+.doc-go{border-top-color:#a58a60;}
